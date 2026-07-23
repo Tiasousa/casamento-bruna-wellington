@@ -28,7 +28,11 @@
 html{ scroll-behavior:smooth; }
 body{
   margin:0;
-  background:var(--cream);
+  background:
+    radial-gradient(ellipse 55% 40% at 6% 4%, rgba(27,51,88,0.10), transparent 60%),
+    radial-gradient(ellipse 50% 38% at 96% 8%, rgba(198,161,91,0.10), transparent 62%),
+    radial-gradient(ellipse 60% 45% at 12% 96%, rgba(27,51,88,0.08), transparent 60%),
+    var(--cream);
   color:var(--ink);
   font-family:var(--font-body);
   font-weight:300;
@@ -123,6 +127,48 @@ button{ font-family:inherit; cursor:pointer; }
 }
 .monogram--hero{ color:var(--gold-light); font-size:1.6rem; margin-bottom:.6rem; }
 .monogram--footer{ color:var(--gold); font-size:1.8rem; margin-bottom:.4rem; }
+
+/* ============================================================
+   Flourish — divisor "linha · coração · linha"
+   ============================================================ */
+.flourish{
+  display:flex; align-items:center; justify-content:center; gap:.6rem;
+  margin:0 auto 1.1rem;
+}
+.flourish__line{
+  width:34px; height:1px; background:currentColor; opacity:.55;
+}
+.flourish__heart{
+  font-size:.75rem; line-height:1; color:var(--gold);
+}
+.hero__content .flourish{ color:var(--gold-light); margin-bottom:.5rem; }
+.hero__content .flourish .flourish__heart{ color:var(--gold-light); }
+.flourish--section{ color:var(--gold); margin:0 auto 1.6rem; }
+.flourish--footer{ color:var(--gold); margin:.3rem auto 1rem; }
+
+/* ============================================================
+   Ornamentos de folhas nos cantos (aquarela em linha, discreto)
+   ============================================================ */
+.leaf-corner{
+  position:absolute; width:150px; height:150px; color:var(--gold-light);
+  opacity:.55; z-index:1; pointer-events:none;
+}
+.leaf-corner--tr{ top:8px; right:8px; transform:scaleX(-1); }
+.leaf-corner--bl{ bottom:8px; left:8px; transform:rotate(180deg) scaleX(-1); }
+.leaf-corner--footer{
+  position:absolute; top:1.2rem; right:1.2rem; width:90px; height:90px;
+  color:var(--gold); opacity:.35;
+}
+@media (max-width:600px){
+  .leaf-corner{ width:100px; height:100px; }
+  .leaf-corner--footer{ width:64px; height:64px; }
+}
+
+.hero__frame{
+  position:absolute; inset:22px; z-index:1; pointer-events:none;
+  border:1px solid rgba(231,214,172,0.45); border-radius:2px;
+}
+@media (max-width:600px){ .hero__frame{ inset:14px; } }
 
 /* ============================================================
    Hero
