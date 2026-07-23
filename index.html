@@ -31,6 +31,20 @@
 </head>
 <body>
 
+<!-- Ornamento botânico reutilizável (ramo com folhas, estilo aquarela em linha) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="leaf-branch" viewBox="0 0 220 220">
+    <path d="M10 210 C 40 160, 55 120, 60 70 C 63 40, 80 15, 110 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M60 70 C 80 60, 95 45, 100 25" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    <ellipse cx="82" cy="47" rx="16" ry="7" transform="rotate(-38 82 47)" fill="currentColor" opacity="0.85"/>
+    <ellipse cx="60" cy="90" rx="18" ry="8" transform="rotate(-52 60 90)" fill="currentColor" opacity="0.7"/>
+    <ellipse cx="42" cy="135" rx="20" ry="9" transform="rotate(-60 42 135)" fill="currentColor" opacity="0.55"/>
+    <ellipse cx="26" cy="178" rx="17" ry="8" transform="rotate(-66 26 178)" fill="currentColor" opacity="0.4"/>
+    <circle cx="108" cy="8" r="3" fill="currentColor" opacity="0.9"/>
+    <circle cx="96" cy="20" r="2" fill="currentColor" opacity="0.6"/>
+  </symbol>
+</svg>
+
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
 <nav class="nav" id="nav" aria-label="Navegação principal">
@@ -57,8 +71,20 @@
       <img src="assets/foto-principal.jpg" alt="Bruna e Wellington" class="hero__img" onerror="this.parentElement.classList.add('hero__media--fallback')">
       <div class="hero__overlay"></div>
     </div>
+
+    <svg class="leaf-corner leaf-corner--tr" viewBox="0 0 220 220" aria-hidden="true">
+      <use href="#leaf-branch"></use>
+    </svg>
+    <svg class="leaf-corner leaf-corner--bl" viewBox="0 0 220 220" aria-hidden="true">
+      <use href="#leaf-branch"></use>
+    </svg>
+    <div class="hero__frame" aria-hidden="true"></div>
+
     <div class="hero__content">
       <p class="monogram monogram--hero" aria-hidden="true">B <span class="monogram__divider"></span> W</p>
+      <p class="flourish" aria-hidden="true">
+        <span class="flourish__line"></span><span class="flourish__heart">♥</span><span class="flourish__line"></span>
+      </p>
       <p class="hero__eyebrow">Vamos dar o nosso sim.</p>
       <h1 class="hero__title">Bruna <span class="hero__amp">&amp;</span> Wellington</h1>
       <p class="hero__date">19 de setembro de 2026 · 16h30</p>
@@ -92,6 +118,9 @@
   <section class="section section--informacoes" id="informacoes">
     <p class="section__eyebrow">O grande dia</p>
     <h2 class="section__title">Informações do evento</h2>
+    <p class="flourish flourish--section" aria-hidden="true">
+      <span class="flourish__line"></span><span class="flourish__heart">♥</span><span class="flourish__line"></span>
+    </p>
 
     <div class="info-grid">
       <div class="info-card">
@@ -127,6 +156,9 @@
   <section class="section section--confirmacao" id="confirmacao">
     <p class="section__eyebrow">Sua presença</p>
     <h2 class="section__title">Confirme sua presença</h2>
+    <p class="flourish flourish--section" aria-hidden="true">
+      <span class="flourish__line"></span><span class="flourish__heart">♥</span><span class="flourish__line"></span>
+    </p>
     <p class="section__text">Sua presença tornará este momento ainda mais especial.</p>
     <a class="btn btn--primary"
        id="btnWhatsapp"
@@ -142,6 +174,9 @@
   <section class="section section--galeria" id="galeria">
     <p class="section__eyebrow">Registros</p>
     <h2 class="section__title">Nossos momentos</h2>
+    <p class="flourish flourish--section" aria-hidden="true">
+      <span class="flourish__line"></span><span class="flourish__heart">♥</span><span class="flourish__line"></span>
+    </p>
 
     <div class="gallery" id="gallery">
       <figure class="gallery__item" data-reveal>
@@ -166,6 +201,9 @@
   <section class="section section--presente" id="presente">
     <p class="section__eyebrow">Com carinho</p>
     <h2 class="section__title">Um carinho para os noivos</h2>
+    <p class="flourish flourish--section" aria-hidden="true">
+      <span class="flourish__line"></span><span class="flourish__heart">♥</span><span class="flourish__line"></span>
+    </p>
     <p class="section__text">
       Nossa maior alegria será compartilhar este momento com você. Caso deseje nos
       presentear de outra forma, deixamos abaixo uma opção preparada com carinho.
@@ -200,7 +238,13 @@
 
 <!-- 8. Rodapé -->
 <footer class="footer">
+  <svg class="leaf-corner leaf-corner--footer" viewBox="0 0 220 220" aria-hidden="true">
+    <use href="#leaf-branch"></use>
+  </svg>
   <p class="monogram monogram--footer" aria-hidden="true">B <span class="monogram__divider"></span> W</p>
+  <p class="flourish flourish--footer" aria-hidden="true">
+    <span class="flourish__line"></span><span class="flourish__heart">♥</span><span class="flourish__line"></span>
+  </p>
   <p class="footer__names">Bruna &amp; Wellington</p>
   <p class="footer__date">19.09.2026</p>
   <p class="footer__text">Esperamos você para celebrar conosco.</p>
