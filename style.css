@@ -31,7 +31,6 @@ body{
   background:
     radial-gradient(ellipse 55% 40% at 6% 4%, rgba(27,51,88,0.10), transparent 60%),
     radial-gradient(ellipse 50% 38% at 96% 8%, rgba(198,161,91,0.10), transparent 62%),
-    radial-gradient(ellipse 45% 34% at 50% 46%, rgba(219,169,169,0.08), transparent 65%),
     radial-gradient(ellipse 60% 45% at 12% 96%, rgba(27,51,88,0.08), transparent 60%),
     var(--cream);
   color:var(--ink);
@@ -40,6 +39,14 @@ body{
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
+}
+
+/* Lavagem rosada delicada — só aparece nas seções claras, nunca no hero (que tem fundo próprio) */
+.section--informacoes{
+  position:relative;
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 30%, rgba(219,169,169,0.22), transparent 68%),
+    transparent;
 }
 img{ max-width:100%; display:block; }
 a{ color:inherit; text-decoration:none; }
@@ -242,6 +249,22 @@ button{ font-family:inherit; cursor:pointer; }
 }
 
 /* ============================================================
+   Nossa história — composição igual ao convite impresso
+   ============================================================ */
+.section--historia{
+  max-width:640px; padding-top:4.5rem; padding-bottom:2.5rem;
+}
+.historia__caps{
+  font-family:var(--font-display); text-transform:uppercase;
+  letter-spacing:.04em; font-size:1.05rem; line-height:1.7;
+  color:var(--navy); font-weight:500;
+}
+.historia__script{
+  margin-top:1.3rem; font-family:var(--font-script);
+  font-size:2.1rem; line-height:1.25; color:var(--navy);
+}
+
+/* ============================================================
    Sections (shared)
    ============================================================ */
 .section{
@@ -340,7 +363,11 @@ button{ font-family:inherit; cursor:pointer; }
 /* ============================================================
    Presente / PIX
    ============================================================ */
-.section--presente{ background:var(--paper); }
+.section--presente{
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 30%, rgba(219,169,169,0.22), transparent 68%),
+    var(--paper);
+}
 .pix-card{
   margin:2.6rem auto 0; max-width:380px; background:var(--cream);
   border:1px solid var(--line); border-radius:var(--radius-lg);
