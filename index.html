@@ -17,7 +17,7 @@
 
 <!-- PWA: permite abrir como app em tela cheia via "Adicionar à Tela de Início" -->
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#10203B">
+<meta name="theme-color" content="#F8F3E8">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -80,10 +80,6 @@
     <div class="hero__content">
       <p class="monogram monogram--hero" aria-hidden="true">B <span class="monogram__divider"></span> W</p>
 
-      <div class="hero__photo">
-        <img src="assets/foto-principal.jpg" alt="Bruna e Wellington" onerror="this.parentElement.style.display='none'">
-      </div>
-
       <p class="historia__caps">
         Há quase 15 anos escolhemos caminhar juntos. Entre risos, desafios e sonhos,
         o amor nos trouxe até aqui&hellip;
@@ -93,34 +89,35 @@
       <p class="flourish" aria-hidden="true">
         <span class="flourish__line"></span><span class="flourish__heart">♥</span><span class="flourish__line"></span>
       </p>
-      <p class="hero__eyebrow">Vamos dar o nosso sim.</p>
-      <h1 class="hero__title">Bruna <span class="hero__amp">&amp;</span> Wellington</h1>
+      <p class="hero__blessing">Com a bênção de Deus e de seus pais</p>
+      <h1 class="hero__title">
+        <span>Bruna</span>
+        <span class="hero__amp">&amp;</span>
+        <span>Wellington</span>
+      </h1>
+      <p class="hero__invite">Convidam você para celebrar o seu casamento</p>
       <p class="hero__date">19 de setembro de 2026 · 16h</p>
-
-      <div class="countdown" id="countdown" aria-live="polite">
-        <div class="countdown__unit">
-          <span class="countdown__value" id="cd-dias">00</span>
-          <span class="countdown__label">dias</span>
-        </div>
-        <div class="countdown__unit">
-          <span class="countdown__value" id="cd-horas">00</span>
-          <span class="countdown__label">horas</span>
-        </div>
-        <div class="countdown__unit">
-          <span class="countdown__value" id="cd-minutos">00</span>
-          <span class="countdown__label">min</span>
-        </div>
-        <div class="countdown__unit">
-          <span class="countdown__value" id="cd-segundos">00</span>
-          <span class="countdown__label">seg</span>
-        </div>
-      </div>
-      <p class="countdown__done" id="countdownDone" hidden>Chegou o nosso grande dia!</p>
     </div>
     <a href="#informacoes" class="hero__scroll" aria-label="Rolar para as informações do evento">
       <span></span>
     </a>
   </header>
+
+
+  <section class="section section--countdown" id="contagem">
+    <div class="couple-photo" data-reveal>
+      <img src="assets/foto-principal.jpg" alt="Bruna e Wellington" onerror="this.parentElement.style.display='none'">
+    </div>
+    <p class="section__eyebrow">Nos vemos em</p>
+    <h2 class="section__title">Contagem regressiva</h2>
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div class="countdown__unit"><span class="countdown__value" id="cd-dias">00</span><span class="countdown__label">dias</span></div>
+      <div class="countdown__unit"><span class="countdown__value" id="cd-horas">00</span><span class="countdown__label">horas</span></div>
+      <div class="countdown__unit"><span class="countdown__value" id="cd-minutos">00</span><span class="countdown__label">min</span></div>
+      <div class="countdown__unit"><span class="countdown__value" id="cd-segundos">00</span><span class="countdown__label">seg</span></div>
+    </div>
+    <p class="countdown__done" id="countdownDone" hidden>Chegou o nosso grande dia!</p>
+  </section>
 
   <!-- 2. Informações do evento -->
   <section class="section section--informacoes" id="informacoes">
