@@ -2,7 +2,7 @@
   "use strict";
 
   /* ============================================================
-     Contagem regressiva — 19/09/2026 às 16:00 (horário de Brasília)
+     Contagem regressiva — 19/09/2026 às 16h (horário de Brasília)
      ============================================================ */
   var WEDDING_DATE = new Date("2026-09-19T16:00:00-03:00").getTime();
 
