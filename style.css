@@ -61,12 +61,12 @@ button{ font-family:inherit; cursor:pointer; }
 }
 .skip-link:focus{ left:0; }
 
-/* Watercolor backdrop, shared by hero + footer */
-.hero__media,
+/* Watercolor backdrop for footer */
 .footer{
-  background:
-    radial-gradient(ellipse 70% 50% at 8% 0%, rgba(27,51,88,0.20), transparent 60%),
-    radial-gradient(ellipse 60% 45% at 95% 10%, rgba(198,161,91,0.16), transparent 65%);
+  background-color:var(--navy-deep);
+  background-image:
+    radial-gradient(ellipse 70% 50% at 8% 0%, rgba(198,161,91,0.14), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 95% 10%, rgba(198,161,91,0.10), transparent 65%);
 }
 
 /* ============================================================
@@ -133,7 +133,7 @@ button{ font-family:inherit; cursor:pointer; }
 .monogram__divider{
   width:1px; height:1.1em; background:currentColor; opacity:.5;
 }
-.monogram--hero{ color:var(--gold-light); font-size:1.6rem; margin-bottom:.6rem; }
+.monogram--hero{ color:var(--navy); font-size:1.7rem; margin-bottom:.7rem; }
 .monogram--footer{ color:var(--gold); font-size:1.8rem; margin-bottom:.4rem; }
 
 /* ============================================================
@@ -149,8 +149,8 @@ button{ font-family:inherit; cursor:pointer; }
 .flourish__heart{
   font-size:.75rem; line-height:1; color:var(--gold);
 }
-.hero__content .flourish{ color:var(--gold-light); margin-bottom:.5rem; }
-.hero__content .flourish .flourish__heart{ color:var(--gold-light); }
+.hero__content .flourish{ color:var(--gold); margin:.9rem auto 1.1rem; }
+.hero__content .flourish .flourish__heart{ color:var(--gold); }
 .flourish--section{ color:var(--gold); margin:0 auto 1.6rem; }
 .flourish--footer{ color:var(--gold); margin:.3rem auto 1rem; }
 
@@ -158,8 +158,8 @@ button{ font-family:inherit; cursor:pointer; }
    Ornamentos de folhas nos cantos (aquarela em linha, discreto)
    ============================================================ */
 .leaf-corner{
-  position:absolute; width:150px; height:150px; color:var(--gold-light);
-  opacity:.55; z-index:1; pointer-events:none;
+  position:absolute; width:150px; height:150px; color:var(--navy-soft);
+  opacity:.5; z-index:1; pointer-events:none;
 }
 .leaf-corner--tr{ top:8px; right:8px; transform:scaleX(-1); }
 .leaf-corner--bl{ bottom:8px; left:8px; transform:rotate(180deg) scaleX(-1); }
@@ -174,72 +174,74 @@ button{ font-family:inherit; cursor:pointer; }
 
 .hero__frame{
   position:absolute; inset:22px; z-index:1; pointer-events:none;
-  border:1px solid rgba(231,214,172,0.45); border-radius:2px;
+  border:1px solid rgba(198,161,91,0.55); border-radius:2px;
 }
 @media (max-width:600px){ .hero__frame{ inset:14px; } }
 
 /* ============================================================
-   Hero
+   Hero — cartão claro em aquarela, igual ao convite impresso
    ============================================================ */
 .hero{
   position:relative; min-height:100svh; display:flex; flex-direction:column;
   align-items:center; justify-content:center; text-align:center;
-  padding:6rem 1.4rem 4rem;
+  padding:6.5rem 1.4rem 4.5rem;
   overflow:hidden;
+  background:var(--cream);
 }
-.hero__media{
+.hero__watercolor{
   position:absolute; inset:0; z-index:0;
+  background:
+    radial-gradient(ellipse 60% 45% at 10% 6%, rgba(27,51,88,0.16), transparent 62%),
+    radial-gradient(ellipse 55% 42% at 92% 10%, rgba(198,161,91,0.14), transparent 65%),
+    radial-gradient(ellipse 50% 55% at 8% 95%, rgba(27,51,88,0.14), transparent 62%),
+    radial-gradient(ellipse 45% 40% at 95% 90%, rgba(219,169,169,0.14), transparent 65%);
 }
-.hero__img{
-  width:100%; height:100%; object-fit:cover; object-position:center 30%;
+.hero__content{ position:relative; z-index:1; color:var(--navy-deep); max-width:640px; }
+
+.hero__photo{
+  width:132px; height:132px; margin:0 auto 1.2rem; border-radius:50%;
+  overflow:hidden; border:3px solid var(--gold);
+  box-shadow:var(--shadow-soft);
 }
-.hero__media--fallback .hero__img{ display:none; }
-.hero__overlay{
-  position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(16,32,59,0.55) 0%, rgba(16,32,59,0.42) 45%, rgba(16,32,59,0.68) 100%);
-}
-.hero__media--fallback::after{
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(160deg, var(--navy-deep), var(--navy) 60%, var(--navy-soft));
-}
-.hero__content{ position:relative; z-index:1; color:#fff; max-width:640px; }
+.hero__photo img{ width:100%; height:100%; object-fit:cover; object-position:center 25%; }
+
 .hero__eyebrow{
-  font-family:var(--font-script); font-size:1.9rem; color:var(--gold-light); margin-bottom:.3rem;
+  font-family:var(--font-script); font-size:1.9rem; color:var(--navy); margin-bottom:.3rem;
 }
 .hero__title{
   font-size:clamp(2.6rem, 8vw, 4.4rem); font-weight:500; letter-spacing:.02em;
-  color:#fff;
+  color:var(--navy-deep);
 }
-.hero__amp{ color:var(--gold-light); font-style:italic; }
+.hero__amp{ color:var(--gold); font-style:italic; }
 .hero__date{
   margin-top:1rem; font-size:.95rem; letter-spacing:.18em; text-transform:uppercase;
-  color:var(--gold-light);
+  color:var(--navy-soft);
 }
 
 .countdown{ display:flex; gap:1.1rem; justify-content:center; margin-top:2.4rem; }
 .countdown__unit{
-  min-width:64px; padding:.9rem .4rem; border:1px solid rgba(231,214,172,0.4);
-  border-radius:var(--radius-sm); background:rgba(255,255,255,0.05);
+  min-width:64px; padding:.9rem .4rem; border:1px solid rgba(27,51,88,0.18);
+  border-radius:var(--radius-sm); background:rgba(255,255,255,0.55);
 }
 .countdown__value{
-  display:block; font-family:var(--font-display); font-size:1.8rem; color:#fff;
+  display:block; font-family:var(--font-display); font-size:1.8rem; color:var(--navy-deep);
 }
 .countdown__label{
   display:block; font-size:.68rem; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--gold-light); margin-top:.2rem;
+  color:var(--gold); margin-top:.2rem;
 }
 .countdown__done{
-  margin-top:2rem; font-family:var(--font-script); font-size:2.2rem; color:var(--gold-light);
+  margin-top:2rem; font-family:var(--font-script); font-size:2.2rem; color:var(--navy);
 }
 
 .hero__scroll{
   position:absolute; bottom:1.8rem; left:50%; transform:translateX(-50%);
-  width:26px; height:42px; border:1px solid rgba(255,255,255,0.6); border-radius:20px;
+  width:26px; height:42px; border:1px solid rgba(27,51,88,0.4); border-radius:20px;
   z-index:1;
 }
 .hero__scroll span{
   position:absolute; top:8px; left:50%; width:4px; height:4px; margin-left:-2px;
-  background:var(--gold-light); border-radius:50%;
+  background:var(--gold); border-radius:50%;
   animation:scrollDot 1.8s infinite;
 }
 @keyframes scrollDot{
@@ -249,19 +251,18 @@ button{ font-family:inherit; cursor:pointer; }
 }
 
 /* ============================================================
-   Nossa história — composição igual ao convite impresso
+   Frase de história — dentro do hero, tons navy/dourado (fundo claro)
    ============================================================ */
-.section--historia{
-  max-width:640px; padding-top:4.5rem; padding-bottom:2.5rem;
-}
 .historia__caps{
   font-family:var(--font-display); text-transform:uppercase;
-  letter-spacing:.04em; font-size:1.05rem; line-height:1.7;
-  color:var(--navy); font-weight:500;
+  letter-spacing:.04em; font-size:.92rem; line-height:1.7;
+  color:var(--navy); font-weight:500; max-width:440px;
+  margin:0 auto;
 }
 .historia__script{
-  margin-top:1.3rem; font-family:var(--font-script);
-  font-size:2.1rem; line-height:1.25; color:var(--navy);
+  margin:.9rem auto 0; font-family:var(--font-script);
+  font-size:1.9rem; line-height:1.2; color:var(--navy);
+  max-width:440px;
 }
 
 /* ============================================================
@@ -403,7 +404,7 @@ button{ font-family:inherit; cursor:pointer; }
    ============================================================ */
 .footer{
   position:relative; text-align:center; padding:4.5rem 1.4rem 3rem;
-  background-color:var(--navy-deep); color:var(--gold-light);
+  color:var(--gold-light);
 }
 .footer__names{ font-family:var(--font-display); font-size:1.6rem; color:#fff; }
 .footer__date{ margin-top:.3rem; letter-spacing:.14em; font-size:.85rem; }
