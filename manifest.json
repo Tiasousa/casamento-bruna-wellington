@@ -1,0 +1,23 @@
+{
+  "name": "Casamento Bruna & Wellington",
+  "short_name": "B & W",
+  "description": "19 de setembro de 2026 · 16h30",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#10203B",
+  "theme_color": "#10203B",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
