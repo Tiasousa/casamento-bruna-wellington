@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Great+Vibes&family=Jost:wght@300;400;500&family=Tangerine:wght@700&display=swap");
+
 /* ============================================================
    CASAMENTO BRUNA & WELLINGTON — VERSÃO PREMIUM
    Substitua todo o conteúdo do seu style.css por este arquivo
@@ -15,6 +17,8 @@
   --cream:#F8F3E8;
   --paper:#FFFDF9;
   --paper-soft:#FDF9F1;
+  --blush:#F4DDDA;
+  --blush-soft:#FBECEA;
 
   --ink:#23324A;
   --ink-soft:#667189;
@@ -22,6 +26,7 @@
 
   --font-display:"Cormorant Garamond","Times New Roman",serif;
   --font-script:"Tangerine",cursive;
+  --font-names:"Great Vibes",cursive;
   --font-body:"Jost","Helvetica Neue",sans-serif;
 
   --radius-sm:12px;
@@ -360,11 +365,11 @@ button{
   text-align:center;
   overflow:hidden;
   background:
-    linear-gradient(rgba(255,253,249,.74),rgba(255,253,249,.74)),
-    radial-gradient(circle at 12% 15%,rgba(41,71,111,.12),transparent 34%),
-    radial-gradient(circle at 89% 12%,rgba(200,164,94,.12),transparent 28%),
-    radial-gradient(circle at 5% 88%,rgba(41,71,111,.10),transparent 31%),
-    linear-gradient(180deg,var(--paper) 0%,var(--cream) 100%);
+    linear-gradient(rgba(255,253,249,.72),rgba(255,253,249,.72)),
+    radial-gradient(ellipse 36% 44% at 3% 18%,rgba(34,63,104,.18),transparent 70%),
+    radial-gradient(ellipse 31% 40% at 98% 25%,rgba(34,63,104,.14),transparent 72%),
+    radial-gradient(ellipse 42% 34% at 50% 92%,rgba(244,221,218,.72),transparent 72%),
+    linear-gradient(180deg,#FFFDF9 0%,#FBF5EB 72%,#F8E7E4 100%);
 }
 
 .hero__watercolor{
@@ -454,17 +459,36 @@ button{
 }
 
 .hero__title{
+  margin:.2rem auto 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:.18em;
   color:var(--navy-deep);
-  font-size:clamp(3.4rem,8vw,6rem);
-  font-weight:500;
-  line-height:.92;
-  letter-spacing:-.015em;
-  text-wrap:balance;
+  font-family:var(--font-names);
+  font-size:clamp(4.7rem,8.4vw,7.4rem);
+  font-weight:400;
+  line-height:.82;
+  letter-spacing:0;
+  white-space:nowrap;
+}
+
+.hero__name{
+  display:inline-block;
+  font-family:var(--font-names);
+  font-weight:400;
 }
 
 .hero__amp{
+  display:inline-block;
+  margin:0 .03em;
   color:var(--gold-strong);
+  font-family:var(--font-display);
+  font-size:.48em;
   font-style:italic;
+  font-weight:500;
+  line-height:1;
+  transform:translateY(.05em);
 }
 
 .hero__date{
@@ -1070,7 +1094,15 @@ button{
   }
 
   .hero__title{
-    font-size:clamp(3rem,15vw,4.3rem);
+    max-width:94vw;
+    gap:.12em;
+    font-size:clamp(3.6rem,13vw,5.4rem);
+    white-space:normal;
+    flex-wrap:wrap;
+  }
+
+  .hero__amp{
+    font-size:.44em;
   }
 
   .hero__date{
@@ -1162,7 +1194,17 @@ button{
   }
 
   .hero__title{
-    font-size:3.2rem;
+    max-width:92vw;
+    gap:0;
+    flex-direction:column;
+    font-size:4.25rem;
+    line-height:.72;
+  }
+
+  .hero__amp{
+    margin:.08em 0 .03em;
+    font-size:.38em;
+    transform:none;
   }
 
   .hero__date{
@@ -1244,5 +1286,108 @@ button:focus-visible{
   [data-reveal]{
     opacity:1;
     transform:none;
+  }
+}
+
+
+/* ============================================================
+   FLORES AQUARELADAS VIVAS NAS LATERAIS
+   Arquivos necessários na mesma pasta do style.css:
+   flores-esquerda.png e flores-direita.png
+   ============================================================ */
+
+.hero::before,
+.hero::after{
+  content:"";
+  position:absolute;
+  z-index:1;
+  pointer-events:none;
+  background-repeat:no-repeat;
+  background-size:contain;
+  filter:saturate(1.12) contrast(1.03) drop-shadow(0 16px 22px rgba(15,28,51,.10));
+}
+
+.hero::before{
+  left:-18px;
+  bottom:-22px;
+  width:min(34vw,520px);
+  height:min(62vh,670px);
+  background-image:url("flores-esquerda.png");
+  background-position:left bottom;
+}
+
+.hero::after{
+  right:-12px;
+  top:65px;
+  width:min(30vw,470px);
+  height:min(58vh,620px);
+  background-image:url("flores-direita.png");
+  background-position:right top;
+}
+
+.hero .leaf-corner{
+  display:none;
+}
+
+/* Rosa-claro preservado nas divisões */
+.section--informacoes{
+  background:
+    radial-gradient(ellipse 54% 72% at 50% 34%,rgba(244,221,218,.72),transparent 72%),
+    radial-gradient(circle at 10% 20%,rgba(41,71,111,.06),transparent 30%),
+    radial-gradient(circle at 90% 80%,rgba(200,164,94,.08),transparent 28%),
+    linear-gradient(180deg,#FFFDF9 0%,#FBECEA 100%);
+}
+
+.section--presente{
+  background:
+    radial-gradient(ellipse 55% 72% at 50% 28%,rgba(244,221,218,.62),transparent 72%),
+    radial-gradient(circle at 15% 20%,rgba(41,71,111,.05),transparent 28%),
+    radial-gradient(circle at 82% 72%,rgba(200,164,94,.08),transparent 28%),
+    linear-gradient(180deg,#FFFDF9 0%,#FBECEA 100%);
+}
+
+/* Nomes com a caligrafia do convite */
+.hero__title,
+.hero__name{
+  font-family:"Great Vibes",cursive !important;
+}
+
+@media (max-width:900px){
+  .hero::before{
+    width:280px;
+    height:470px;
+    left:-70px;
+    bottom:-22px;
+    opacity:.9;
+  }
+
+  .hero::after{
+    width:255px;
+    height:430px;
+    right:-58px;
+    top:68px;
+    opacity:.9;
+  }
+}
+
+@media (max-width:600px){
+  .hero::before{
+    width:210px;
+    height:350px;
+    left:-82px;
+    bottom:-8px;
+    opacity:.78;
+  }
+
+  .hero::after{
+    width:190px;
+    height:330px;
+    right:-75px;
+    top:72px;
+    opacity:.78;
+  }
+
+  .hero__content{
+    width:min(100%,560px);
   }
 }
