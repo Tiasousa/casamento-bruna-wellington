@@ -296,6 +296,7 @@ button{font-family:inherit;cursor:pointer}
   align-items:center;
   justify-content:center;
   margin:.6rem auto 0;
+  max-width:100%;
   color:var(--navy-deep);
   font-family:var(--font-names);
   font-weight:400;
@@ -305,10 +306,11 @@ button{font-family:inherit;cursor:pointer}
 .hero__name{
   display:block;
   margin:.28rem 0;
+  max-width:100%;
   font-family:var(--font-names);
   font-size:clamp(5.4rem,9.5vw,8.2rem);
   font-weight:400;
-  white-space:nowrap;
+  overflow-wrap:break-word;
 }
 .hero__amp{
   display:block;
