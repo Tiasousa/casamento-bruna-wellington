@@ -1322,6 +1322,7 @@ button:focus-visible{
       radial-gradient(ellipse 26% 49% at 104% 102%,rgba(18,44,80,.30),transparent 69%),
 
       radial-gradient(ellipse 95% 70% at 62% 45%,rgba(70,90,130,.16),transparent 85%),
-      radial-gradient(ellipse 60% 60% at 88% 40%,rgba(70,90,130,.14),transparent 80%);
+      radial-gradient(ellipse 60% 60% at 88% 40%,rgba(70,90,130,.14),transparent 80%),
+      radial-gradient(ellipse 80% 55% at 60% 68%,rgba(70,90,130,.15),transparent 82%);
   }
 }
