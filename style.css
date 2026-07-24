@@ -1144,3 +1144,77 @@ button:focus-visible{
     letter-spacing:.045em;
   }
 }
+
+/* ============================================================
+   MARCA-D'ÁGUA LATERAL DO CASAL
+   Usa a foto original, sem gerar ou alterar a imagem.
+   ============================================================ */
+.hero::before,
+.hero::after{
+  content:"";
+  position:absolute;
+  top:8%;
+  bottom:5%;
+  width:min(34vw,520px);
+  z-index:1;
+  pointer-events:none;
+  background-image:url("assets/marca-casal.png");
+  background-repeat:no-repeat;
+  background-size:cover;
+  opacity:.055;
+  filter:grayscale(100%) sepia(18%) hue-rotate(168deg) saturate(75%) contrast(72%) brightness(116%) blur(2.5px);
+  mix-blend-mode:multiply;
+}
+
+.hero::before{
+  left:-5%;
+  background-position:54% center;
+  -webkit-mask-image:linear-gradient(to right,#000 0%,#000 48%,transparent 100%);
+  mask-image:linear-gradient(to right,#000 0%,#000 48%,transparent 100%);
+}
+
+.hero::after{
+  right:-5%;
+  background-position:54% center;
+  transform:scaleX(-1);
+  -webkit-mask-image:linear-gradient(to left,#000 0%,#000 48%,transparent 100%);
+  mask-image:linear-gradient(to left,#000 0%,#000 48%,transparent 100%);
+}
+
+/* Mantém texto e elementos principais acima da marca-d'água. */
+.hero__content{z-index:3}
+.hero__frame{z-index:2}
+.leaf-corner{z-index:2}
+
+@media (max-width:900px){
+  .hero::before,
+  .hero::after{
+    width:42vw;
+    opacity:.04;
+  }
+}
+
+@media (max-width:760px){
+  .hero::before,
+  .hero::after{
+    top:12%;
+    bottom:9%;
+    width:58vw;
+    opacity:.025;
+    filter:grayscale(100%) sepia(15%) hue-rotate(168deg) saturate(65%) contrast(70%) brightness(120%) blur(3px);
+  }
+
+  .hero::before{left:-25%}
+  .hero::after{right:-25%}
+}
+
+@media (max-width:480px){
+  .hero::before,
+  .hero::after{
+    width:64vw;
+    opacity:.02;
+  }
+
+  .hero::before{left:-31%}
+  .hero::after{right:-31%}
+}
