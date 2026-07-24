@@ -9,9 +9,9 @@
   --navy-soft:#2E4A76;
   --gold:#C6A15B;
   --gold-light:#E7D6AC;
-  --cream:#FBF6EC;
-  --paper:#FFFDFA;
-  --rose:#F6E6E2;
+  --cream:#F5F1EA;
+  --paper:#F8F5F0;
+  --rose:#E9E2D8;
   --ink:#24324A;
   --ink-soft:#5B6B84;
   --line:rgba(27,51,88,.14);
@@ -38,9 +38,8 @@ body{
   font-weight:300;
   line-height:1.6;
   background:
-    radial-gradient(ellipse 55% 40% at 6% 4%,rgba(27,51,88,.10),transparent 60%),
-    radial-gradient(ellipse 50% 38% at 96% 8%,rgba(198,161,91,.10),transparent 62%),
-    radial-gradient(ellipse 60% 45% at 12% 96%,rgba(27,51,88,.08),transparent 60%),
+    radial-gradient(circle at top left,rgba(16,32,59,.05),transparent 42%),
+    radial-gradient(circle at bottom right,rgba(184,145,71,.05),transparent 45%),
     var(--cream);
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
@@ -69,7 +68,7 @@ button{font-family:inherit;cursor:pointer}
   position:fixed;
   inset:0 0 auto;
   z-index:100;
-  background:rgba(255,253,250,.91);
+  background:rgba(248,245,240,.91);
   border-bottom:1px solid rgba(198,161,91,.20);
   backdrop-filter:blur(9px);
 }
@@ -197,10 +196,10 @@ button{font-family:inherit;cursor:pointer}
   text-align:center;
   overflow:hidden;
   background:
-    linear-gradient(rgba(255,253,250,.82),rgba(255,253,250,.82)),
+    linear-gradient(rgba(248,245,240,.84),rgba(248,245,240,.84)),
     radial-gradient(ellipse 32% 58% at 0% 12%,rgba(39,73,119,.23),transparent 72%),
     radial-gradient(ellipse 28% 48% at 100% 20%,rgba(39,73,119,.15),transparent 72%),
-    radial-gradient(ellipse 42% 35% at 50% 100%,rgba(246,230,226,.72),transparent 76%),
+    radial-gradient(ellipse 42% 35% at 50% 100%,rgba(233,226,216,.46),transparent 76%),
     var(--cream);
 }
 .hero__watercolor{
@@ -212,8 +211,8 @@ button{font-family:inherit;cursor:pointer}
     radial-gradient(ellipse 24% 50% at -4% 12%,rgba(27,51,88,.16),transparent 74%),
     radial-gradient(ellipse 22% 42% at 103% 20%,rgba(46,74,118,.14),transparent 75%),
     radial-gradient(ellipse 22% 45% at 2% 98%,rgba(27,51,88,.15),transparent 74%),
-    radial-gradient(ellipse 22% 44% at 99% 98%,rgba(219,169,169,.12),transparent 76%),
-    radial-gradient(ellipse 34% 30% at 68% 46%,rgba(230,182,178,.22),transparent 72%);
+    radial-gradient(ellipse 22% 44% at 99% 98%,rgba(198,161,91,.08),transparent 76%),
+    radial-gradient(ellipse 34% 30% at 68% 46%,rgba(231,214,172,.16),transparent 72%);
 }
 .hero__frame{
   position:absolute;
@@ -404,7 +403,7 @@ button{font-family:inherit;cursor:pointer}
 .section--informacoes{
   position:relative;
   background:
-    radial-gradient(ellipse 65% 75% at 50% 32%,rgba(219,169,169,.24),transparent 70%),
+    radial-gradient(ellipse 65% 75% at 50% 32%,rgba(231,214,172,.18),transparent 70%),
     transparent;
 }
 .section__eyebrow{
@@ -446,7 +445,7 @@ button{font-family:inherit;cursor:pointer}
   padding:2.2rem 1.4rem;
   border:1px solid rgba(198,161,91,.30);
   border-radius:var(--radius-md);
-  background:rgba(255,253,250,.92);
+  background:rgba(248,245,240,.92);
   box-shadow:var(--shadow-soft);
 }
 .info-card__icon{
@@ -530,7 +529,7 @@ button{font-family:inherit;cursor:pointer}
 /* PRESENTE */
 .section--presente{
   background:
-    radial-gradient(ellipse 60% 70% at 50% 30%,rgba(219,169,169,.22),transparent 68%),
+    radial-gradient(ellipse 60% 70% at 50% 30%,rgba(231,214,172,.16),transparent 68%),
     var(--paper);
 }
 .pix-card{
