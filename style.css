@@ -792,6 +792,43 @@ button:focus-visible{
     font-size:1.25rem;
   }
 
+  /* ---- CORREÇÃO MENU MOBILE (linha única, sem hambúrguer) ---- */
+  .nav__toggle{
+    display:none;
+  }
+
+  .nav__brand{
+    display:none;
+  }
+
+  .nav__inner{
+    justify-content:center;
+  }
+
+  .nav__menu{
+    position:static;
+    max-height:none;
+    overflow:visible;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    gap:0;
+    border-bottom:0;
+    background:transparent;
+  }
+
+  .nav__menu li{
+    border-top:0;
+  }
+
+  .nav__menu a{
+    padding:.3rem .25rem;
+    font-size:.58rem;
+    letter-spacing:.02em;
+    white-space:nowrap;
+  }
+  /* ---- FIM DA CORREÇÃO ---- */
+
   .hero{
     min-height:auto;
     padding:4.8rem .95rem 2.2rem;
@@ -1013,6 +1050,12 @@ button:focus-visible{
   .countdown__label{
     font-size:.5rem;
   }
+
+  /* menu ainda menor em telas bem pequenas */
+  .nav__menu a{
+    font-size:.5rem;
+    padding:.25rem .12rem;
+  }
 }
 
 /* ============================================================
@@ -1216,4 +1259,3 @@ button:focus-visible{
   .hero::before{left:-28%}
   .hero::after{right:-28%}
 }
-A
