@@ -1267,11 +1267,15 @@ button:focus-visible{
   .hero::after{
     top:10%;
     bottom:5%;
-    width:62vw;
-    opacity:.09;
+    left:auto;
+    right:auto;
+    width:70vw;
+    opacity:.13;
     filter:grayscale(100%) sepia(12%) hue-rotate(168deg) saturate(70%) contrast(80%) brightness(112%) blur(1.4px);
+    -webkit-mask-image:none;
+    mask-image:none;
   }
 
-  .hero::before{left:-28%}
-  .hero::after{right:-28%}
+  .hero::before{left:-10%}
+  .hero::after{right:-10%}
 }
