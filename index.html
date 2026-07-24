@@ -417,15 +417,15 @@
         </li>
 
         <li>
+          <a href="#presente">Presente</a>
+        </li>
+
+        <li>
           <a href="#confirmacao">Confirmação</a>
         </li>
 
         <li>
           <a href="#galeria">Fotos</a>
-        </li>
-
-        <li>
-          <a href="#presente">Presente</a>
         </li>
       </ul>
 
@@ -803,6 +803,112 @@
       </div>
     </section>
 
+    <!-- Presente -->
+    <section
+      class="section section--presente"
+      id="presente"
+    >
+      <p class="section__eyebrow">
+        Com carinho
+      </p>
+
+      <h2 class="section__title">
+        Um carinho para os noivos
+      </h2>
+
+      <p
+        class="flourish flourish--section"
+        aria-hidden="true"
+      >
+        <span class="flourish__line"></span>
+        <span class="flourish__heart">♥</span>
+        <span class="flourish__line"></span>
+      </p>
+
+      <p class="section__text">
+        Nossa maior alegria será compartilhar este momento com você.
+        Caso deseje nos presentear, preparamos uma lista com carinho.
+        Também deixamos abaixo a opção de presente via PIX.
+      </p>
+
+      <a
+        class="btn btn--gift"
+        href="https://lista.camicado.com.br/bruna.alexandreewellington"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Abrir lista de presentes de Bruna e Wellington na Camicado"
+      >
+        <svg
+          class="btn__icon"
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <rect x="3" y="9" width="18" height="12" rx="2"></rect>
+          <path d="M12 9v12M3 13h18M7.5 9C5.8 9 5 8.1 5 7c0-1.2.9-2 2.1-2C9.4 5 12 9 12 9M16.5 9C18.2 9 19 8.1 19 7c0-1.2-.9-2-2.1-2C14.6 5 12 9 12 9"></path>
+        </svg>
+
+        <span>Ver lista de presentes</span>
+      </a>
+
+      <div class="pix-card">
+
+        <div class="pix-card__qr">
+          <img
+            src="pix.png"
+            alt="QR Code para pagamento via PIX"
+            loading="lazy"
+            onerror="this.parentElement.classList.add('pix-card__qr--empty')"
+          >
+        </div>
+
+        <dl class="pix-card__details">
+
+          <div class="pix-card__row">
+            <dt>Titular</dt>
+            <dd>Bruna Rodrigues Alexandre</dd>
+          </div>
+
+          <div class="pix-card__row">
+            <dt>Banco</dt>
+            <dd>Banco do Brasil</dd>
+          </div>
+
+          <div class="pix-card__row">
+            <dt>Chave PIX</dt>
+            <dd id="pixKey">047.276.171-45</dd>
+          </div>
+
+        </dl>
+
+        <button
+          class="btn btn--outline"
+          id="btnCopyPix"
+          type="button"
+          aria-label="Copiar chave PIX"
+        >
+          Copiar chave PIX
+        </button>
+
+        <p
+          class="pix-card__feedback"
+          id="pixFeedback"
+          role="status"
+          aria-live="polite"
+          hidden
+        >
+          Chave PIX copiada com sucesso.
+        </p>
+
+      </div>
+    </section>
+
     <!-- Confirmação de presença -->
     <section
       class="section section--confirmacao"
@@ -933,96 +1039,6 @@
             loading="lazy"
           >
         </figure>
-
-      </div>
-    </section>
-
-    <!-- Presente -->
-    <section
-      class="section section--presente"
-      id="presente"
-    >
-      <p class="section__eyebrow">
-        Com carinho
-      </p>
-
-      <h2 class="section__title">
-        Um carinho para os noivos
-      </h2>
-
-      <p
-        class="flourish flourish--section"
-        aria-hidden="true"
-      >
-        <span class="flourish__line"></span>
-        <span class="flourish__heart">♥</span>
-        <span class="flourish__line"></span>
-      </p>
-
-      <p class="section__text">
-        Nossa maior alegria será compartilhar este momento com você.
-        Caso deseje nos presentear, preparamos uma lista com carinho.
-        Também deixamos abaixo a opção de presente via PIX.
-      </p>
-
-      <a
-        class="btn btn--outline"
-        href="https://lista.camicado.com.br/bruna.alexandreewellington"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Abrir lista de presentes de Bruna e Wellington na Camicado"
-      >
-        Ver lista de presentes
-      </a>
-
-      <div class="pix-card">
-
-        <div class="pix-card__qr">
-          <img
-            src="pix.png"
-            alt="QR Code para pagamento via PIX"
-            loading="lazy"
-            onerror="this.parentElement.classList.add('pix-card__qr--empty')"
-          >
-        </div>
-
-        <dl class="pix-card__details">
-
-          <div class="pix-card__row">
-            <dt>Titular</dt>
-            <dd>Bruna Rodrigues Alexandre</dd>
-          </div>
-
-          <div class="pix-card__row">
-            <dt>Banco</dt>
-            <dd>Banco do Brasil</dd>
-          </div>
-
-          <div class="pix-card__row">
-            <dt>Chave PIX</dt>
-            <dd id="pixKey">047.276.171-45</dd>
-          </div>
-
-        </dl>
-
-        <button
-          class="btn btn--outline"
-          id="btnCopyPix"
-          type="button"
-          aria-label="Copiar chave PIX"
-        >
-          Copiar chave PIX
-        </button>
-
-        <p
-          class="pix-card__feedback"
-          id="pixFeedback"
-          role="status"
-          aria-live="polite"
-          hidden
-        >
-          Chave PIX copiada com sucesso.
-        </p>
 
       </div>
     </section>
