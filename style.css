@@ -197,10 +197,10 @@ button{font-family:inherit;cursor:pointer}
   text-align:center;
   overflow:hidden;
   background:
-    radial-gradient(ellipse 22% 18% at 44% 43%, rgba(246,232,230,.14), transparent 72%),
-    radial-gradient(ellipse 18% 15% at 56% 50%, rgba(248,236,234,.11), transparent 74%),
-    radial-gradient(ellipse 16% 13% at 48% 61%, rgba(245,229,227,.09), transparent 76%),
-    linear-gradient(rgba(255,253,250,.89),rgba(255,253,250,.89)),
+    radial-gradient(ellipse 18% 16% at 44% 41%, rgba(246,232,230,.10), transparent 74%),
+    radial-gradient(ellipse 14% 12% at 57% 49%, rgba(248,236,234,.08), transparent 75%),
+    radial-gradient(ellipse 16% 14% at 49% 61%, rgba(245,229,227,.07), transparent 76%),
+    linear-gradient(rgba(255,253,250,.90),rgba(255,253,250,.90)),
     var(--cream);
 }
 .hero__watercolor{
@@ -209,19 +209,21 @@ button{font-family:inherit;cursor:pointer}
   z-index:0;
   pointer-events:none;
   background:
-    radial-gradient(ellipse 24% 44% at -5% 8%, rgba(20,46,84,.31), transparent 69%),
-    radial-gradient(ellipse 16% 28% at 3% 29%, rgba(55,92,146,.18), transparent 67%),
-    radial-gradient(ellipse 21% 40% at -3% 55%, rgba(34,68,118,.20), transparent 71%),
-    radial-gradient(ellipse 23% 46% at 1% 96%, rgba(24,53,94,.28), transparent 70%),
+    radial-gradient(ellipse 28% 54% at -7% 8%, rgba(18,44,82,.34), transparent 67%),
+    radial-gradient(ellipse 12% 18% at 2% 18%, rgba(76,114,172,.18), transparent 72%),
+    radial-gradient(ellipse 17% 26% at 5% 41%, rgba(44,77,126,.16), transparent 70%),
+    radial-gradient(ellipse 20% 38% at -2% 76%, rgba(26,56,98,.24), transparent 69%),
+    radial-gradient(ellipse 26% 48% at -3% 98%, rgba(18,44,82,.30), transparent 70%),
 
-    radial-gradient(ellipse 23% 43% at 105% 14%, rgba(27,58,101,.29), transparent 69%),
-    radial-gradient(ellipse 15% 27% at 98% 39%, rgba(69,106,163,.17), transparent 66%),
-    radial-gradient(ellipse 20% 38% at 103% 68%, rgba(39,76,128,.19), transparent 70%),
-    radial-gradient(ellipse 22% 45% at 100% 97%, rgba(31,63,107,.26), transparent 71%),
+    radial-gradient(ellipse 27% 50% at 107% 12%, rgba(19,46,86,.33), transparent 67%),
+    radial-gradient(ellipse 11% 18% at 98% 28%, rgba(79,118,178,.17), transparent 72%),
+    radial-gradient(ellipse 16% 25% at 95% 56%, rgba(45,80,131,.16), transparent 70%),
+    radial-gradient(ellipse 19% 36% at 101% 82%, rgba(27,59,103,.22), transparent 69%),
+    radial-gradient(ellipse 24% 46% at 102% 99%, rgba(20,46,86,.29), transparent 70%),
 
-    radial-gradient(ellipse 14% 11% at 43% 44%, rgba(247,234,232,.10), transparent 75%),
-    radial-gradient(ellipse 13% 10% at 57% 51%, rgba(248,237,235,.08), transparent 76%),
-    radial-gradient(ellipse 12% 9% at 49% 61%, rgba(244,228,226,.07), transparent 77%);
+    radial-gradient(ellipse 11% 9% at 43% 43%, rgba(247,236,234,.09), transparent 77%),
+    radial-gradient(ellipse 10% 8% at 58% 50%, rgba(247,234,232,.08), transparent 78%),
+    radial-gradient(ellipse 9% 8% at 48% 61%, rgba(245,229,227,.06), transparent 79%);
 }
 .hero__frame{
   position:absolute;
@@ -684,10 +686,10 @@ button{font-family:inherit;cursor:pointer}
   text-align:center;
   overflow:hidden;
   background:
-    radial-gradient(ellipse 22% 18% at 44% 43%, rgba(246,232,230,.14), transparent 72%),
-    radial-gradient(ellipse 18% 15% at 56% 50%, rgba(248,236,234,.11), transparent 74%),
-    radial-gradient(ellipse 16% 13% at 48% 61%, rgba(245,229,227,.09), transparent 76%),
-    linear-gradient(rgba(255,253,250,.89),rgba(255,253,250,.89)),
+    radial-gradient(ellipse 18% 16% at 44% 41%, rgba(246,232,230,.10), transparent 74%),
+    radial-gradient(ellipse 14% 12% at 57% 49%, rgba(248,236,234,.08), transparent 75%),
+    radial-gradient(ellipse 16% 14% at 49% 61%, rgba(245,229,227,.07), transparent 76%),
+    linear-gradient(rgba(255,253,250,.90),rgba(255,253,250,.90)),
     var(--cream);
 }
 
