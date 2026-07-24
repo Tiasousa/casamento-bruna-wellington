@@ -755,3 +755,233 @@ button:focus-visible{
   .hero__scroll span{animation:none}
   .btn{transition:none}
 }
+
+
+/* ============================================================
+   V8 — OTIMIZAÇÃO MOBILE
+   Ajustes exclusivos para telas de celular
+   ============================================================ */
+@media (max-width:760px){
+  .nav__inner{
+    min-height:72px;
+    padding:.75rem 1.35rem;
+  }
+
+  .nav__brand{
+    font-size:1.25rem;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:4.8rem .95rem 2.2rem;
+  }
+
+  .hero__frame{
+    inset:10px;
+  }
+
+  .hero__frame::before{
+    inset:5px;
+  }
+
+  .hero__content{
+    width:100%;
+    max-width:560px;
+  }
+
+  .monogram--hero{
+    margin-bottom:.45rem;
+    font-size:1.55rem;
+  }
+
+  .hero__content .flourish{
+    margin:.45rem auto .6rem;
+  }
+
+  .historia__caps{
+    max-width:94%;
+    font-size:.72rem;
+    line-height:1.48;
+    letter-spacing:.045em;
+  }
+
+  .historia__script{
+    max-width:92%;
+    margin-top:.35rem;
+    font-size:1.55rem;
+    line-height:1;
+  }
+
+  .hero__eyebrow{
+    margin-bottom:.85rem;
+    font-size:1.4rem;
+  }
+
+  .hero__title{
+    margin-top:.05rem;
+    line-height:.92;
+  }
+
+  .hero__name{
+    margin:.12rem 0;
+    font-size:clamp(3rem,15.5vw,4.15rem);
+  }
+
+  .hero__amp{
+    margin:.18rem 0 .25rem;
+    font-size:1.45rem;
+  }
+
+  .hero__date{
+    margin-top:.9rem;
+    font-size:.76rem;
+    line-height:1.45;
+    letter-spacing:.12em;
+  }
+
+  .countdown{
+    width:100%;
+    gap:.38rem;
+    margin-top:1.25rem;
+  }
+
+  .countdown__unit{
+    flex:1;
+    min-width:0;
+    padding:.72rem .2rem;
+    border-radius:9px;
+  }
+
+  .countdown__value{
+    font-size:1.5rem;
+  }
+
+  .countdown__label{
+    margin-top:.22rem;
+    font-size:.54rem;
+    letter-spacing:.1em;
+  }
+
+  .section{
+    padding:4rem 1.1rem;
+  }
+
+  .section__eyebrow{
+    margin-bottom:.45rem;
+    font-size:.72rem;
+  }
+
+  .section__title{
+    margin-bottom:.85rem;
+    font-size:clamp(1.75rem,8vw,2.25rem);
+  }
+
+  .section__title::after{
+    margin-top:.65rem;
+  }
+
+  .flourish--section{
+    margin-bottom:1.15rem;
+  }
+
+  .section__text{
+    font-size:.98rem;
+    line-height:1.75;
+  }
+
+  .info-grid{
+    margin-top:2rem;
+    gap:1rem;
+  }
+
+  .info-card{
+    padding:1.7rem 1.2rem;
+  }
+
+  .gallery{
+    margin-top:2rem;
+    grid-auto-columns:72%;
+    gap:.8rem;
+  }
+
+  .gallery__item{
+    border-radius:15px;
+  }
+
+  .section--confirmacao .btn{
+    width:min(100%,450px);
+    margin-top:.85rem;
+  }
+
+  .pix-card{
+    width:100%;
+    max-width:100%;
+    margin-top:2rem;
+    padding:1.6rem 1.2rem;
+    border-radius:22px;
+  }
+
+  .pix-card__qr{
+    width:min(230px,72vw);
+    height:min(230px,72vw);
+    margin-bottom:1.25rem;
+  }
+
+  .pix-card__details{
+    margin-bottom:1.15rem;
+  }
+
+  .pix-card__row{
+    padding:.7rem 0;
+  }
+
+  .pix-card .btn{
+    width:100%;
+    max-width:330px;
+  }
+
+  .footer{
+    padding:3.5rem 1.2rem 2.5rem;
+  }
+
+  .leaf-corner--footer{
+    width:72px;
+    height:94px;
+    opacity:.22;
+  }
+}
+
+@media (max-width:390px){
+  .hero{
+    padding-left:.72rem;
+    padding-right:.72rem;
+  }
+
+  .hero__name{
+    font-size:clamp(2.8rem,15vw,3.75rem);
+  }
+
+  .historia__caps{
+    font-size:.68rem;
+  }
+
+  .historia__script{
+    font-size:1.42rem;
+  }
+
+  .countdown{
+    gap:.28rem;
+  }
+
+  .countdown__unit{
+    padding:.66rem .12rem;
+  }
+
+  .countdown__value{
+    font-size:1.38rem;
+  }
+
+  .countdown__label{
+    font-size:.5rem;
+  }
+}
