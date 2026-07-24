@@ -285,6 +285,9 @@ button{font-family:inherit;cursor:pointer}
   height:130px;
   opacity:.35;
 }
+.leaf-corner--hero-right{
+  display:none;
+}
 
 /* TEXTO DA HISTÓRIA */
 .historia__caps{
@@ -1286,7 +1289,16 @@ button:focus-visible{
   }
 
   .hero::after{
-    right:-14%;
-    background-position:70% 18%;
+    content:none;
+  }
+
+  .leaf-corner--hero-right{
+    display:block;
+    top:9%;
+    right:-32px;
+    width:150px;
+    height:196px;
+    opacity:.55;
+    z-index:2;
   }
 }
