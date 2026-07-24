@@ -1278,7 +1278,11 @@ button:focus-visible{
 
   .hero::before{
     left:-14%;
-    background-position:22% 28%;
+    width:52vw;
+    opacity:.28;
+    background-position:24% 28%;
+    -webkit-mask-image:linear-gradient(to right,#000 0%,#000 42%,transparent 100%);
+    mask-image:linear-gradient(to right,#000 0%,#000 42%,transparent 100%);
   }
 
   .hero::after{
