@@ -103,6 +103,47 @@
     rel="stylesheet"
     href="style.css"
   >
+
+  <!-- Estilo do detalhe dourado abaixo do B | W -->
+  <style>
+    .hero-divider {
+      width: min(320px, 76vw);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 10px auto 28px;
+    }
+
+    .hero-divider__line {
+      display: block;
+      flex: 1;
+      height: 1px;
+      background: #c7a15a;
+      opacity: 0.75;
+    }
+
+    .hero-divider__ornament {
+      width: 66px;
+      height: 26px;
+      flex: 0 0 auto;
+      overflow: visible;
+    }
+
+    @media (max-width: 480px) {
+      .hero-divider {
+        width: min(250px, 72vw);
+        gap: 9px;
+        margin-top: 8px;
+        margin-bottom: 24px;
+      }
+
+      .hero-divider__ornament {
+        width: 54px;
+        height: 23px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -326,6 +367,7 @@
           fill="#D9BC75"
         />
       </symbol>
+
     </defs>
   </svg>
 
@@ -392,7 +434,7 @@
 
   <main id="conteudo">
 
-    <!-- 1. Abertura -->
+    <!-- Abertura -->
     <header
       class="hero"
       id="topo"
@@ -402,7 +444,6 @@
         aria-hidden="true"
       ></div>
 
-      <!-- Moldura principal -->
       <div
         class="hero__frame"
         aria-hidden="true"
@@ -418,6 +459,94 @@
           <span class="monogram__divider"></span>
           W
         </p>
+
+        <!-- Linhas douradas com pequeno ramo central -->
+        <div
+          class="hero-divider"
+          aria-hidden="true"
+        >
+          <span class="hero-divider__line"></span>
+
+          <svg
+            class="hero-divider__ornament"
+            viewBox="0 0 100 36"
+          >
+            <path
+              d="M50 24 C42 22 35 17 29 10"
+              fill="none"
+              stroke="#C7A15A"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M50 24 C58 22 65 17 71 10"
+              fill="none"
+              stroke="#C7A15A"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+
+            <ellipse
+              cx="34"
+              cy="13"
+              rx="6"
+              ry="2.6"
+              transform="rotate(35 34 13)"
+              fill="#C7A15A"
+            />
+
+            <ellipse
+              cx="42"
+              cy="20"
+              rx="5.5"
+              ry="2.4"
+              transform="rotate(30 42 20)"
+              fill="#D9BC75"
+            />
+
+            <ellipse
+              cx="66"
+              cy="13"
+              rx="6"
+              ry="2.6"
+              transform="rotate(-35 66 13)"
+              fill="#C7A15A"
+            />
+
+            <ellipse
+              cx="58"
+              cy="20"
+              rx="5.5"
+              ry="2.4"
+              transform="rotate(-30 58 20)"
+              fill="#D9BC75"
+            />
+
+            <circle
+              cx="50"
+              cy="25"
+              r="2.3"
+              fill="#B98A38"
+            />
+
+            <circle
+              cx="26"
+              cy="8"
+              r="1.8"
+              fill="#D9BC75"
+            />
+
+            <circle
+              cx="74"
+              cy="8"
+              r="1.8"
+              fill="#D9BC75"
+            />
+          </svg>
+
+          <span class="hero-divider__line"></span>
+        </div>
 
         <p class="historia__caps">
           Há quase 15 anos escolhemos caminhar juntos.
@@ -540,7 +669,7 @@
 
     </header>
 
-    <!-- 2. Informações -->
+    <!-- Informações do evento -->
     <section
       class="section section--informacoes"
       id="informacoes"
@@ -565,6 +694,7 @@
       <div class="info-grid">
 
         <div class="info-card">
+
           <div
             class="info-card__icon"
             aria-hidden="true"
@@ -597,9 +727,11 @@
           <p>
             19 de setembro de 2026
           </p>
+
         </div>
 
         <div class="info-card">
+
           <div
             class="info-card__icon"
             aria-hidden="true"
@@ -623,9 +755,11 @@
           <h3>Horário</h3>
 
           <p>16h</p>
+
         </div>
 
         <div class="info-card">
+
           <div
             class="info-card__icon"
             aria-hidden="true"
@@ -663,12 +797,13 @@
           >
             Abrir localização
           </a>
+
         </div>
 
       </div>
     </section>
 
-    <!-- 3. Confirmação -->
+    <!-- Confirmação de presença -->
     <section
       class="section section--confirmacao"
       id="confirmacao"
@@ -717,7 +852,7 @@
 
     </section>
 
-    <!-- 4. Galeria -->
+    <!-- Galeria -->
     <section
       class="section section--galeria"
       id="galeria"
@@ -802,7 +937,7 @@
       </div>
     </section>
 
-    <!-- 5. Presente -->
+    <!-- Presente -->
     <section
       class="section section--presente"
       id="presente"
