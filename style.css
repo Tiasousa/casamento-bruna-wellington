@@ -1269,13 +1269,13 @@ button:focus-visible{
     bottom:5%;
     left:auto;
     right:auto;
-    width:70vw;
-    opacity:.13;
+    width:44vw;
+    opacity:.16;
     filter:grayscale(100%) sepia(12%) hue-rotate(168deg) saturate(70%) contrast(80%) brightness(112%) blur(1.4px);
     -webkit-mask-image:none;
     mask-image:none;
   }
 
-  .hero::before{left:-10%}
-  .hero::after{right:-10%}
+  .hero::before{left:-14%}
+  .hero::after{right:-14%}
 }
