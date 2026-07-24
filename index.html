@@ -143,74 +143,6 @@
         height: 23px;
       }
     }
-
-
-    /* Marca-d'água lateral com a foto original do casal */
-    .hero__couple-watermark {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      overflow: hidden;
-      pointer-events: none;
-    }
-
-    .hero__couple-watermark::before,
-    .hero__couple-watermark::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      width: clamp(260px, 31vw, 560px);
-      height: min(78vh, 760px);
-      background-image: url('assets/foto-principal.jpg');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      opacity: 0.075;
-      filter: grayscale(1) sepia(.12) saturate(.65) contrast(.82) blur(1.5px);
-      mix-blend-mode: multiply;
-      transform: translateY(-50%);
-      -webkit-mask-image: linear-gradient(to right, #000 0%, #000 42%, transparent 100%);
-      mask-image: linear-gradient(to right, #000 0%, #000 42%, transparent 100%);
-    }
-
-    .hero__couple-watermark::before { left: -5vw; }
-
-    .hero__couple-watermark::after {
-      right: -5vw;
-      transform: translateY(-50%) scaleX(-1);
-    }
-
-    .hero__content,
-    .hero__frame,
-    .hero__scroll {
-      position: relative;
-      z-index: 3;
-    }
-
-    .hero__watercolor { z-index: 0; }
-
-    @media (max-width: 900px) {
-      .hero__couple-watermark::before,
-      .hero__couple-watermark::after {
-        width: 52vw;
-        height: 62vh;
-        opacity: 0.045;
-      }
-      .hero__couple-watermark::before { left: -27vw; }
-      .hero__couple-watermark::after { right: -27vw; }
-    }
-
-    @media (max-width: 560px) {
-      .hero__couple-watermark::before,
-      .hero__couple-watermark::after {
-        width: 64vw;
-        height: 54vh;
-        opacity: 0.03;
-      }
-      .hero__couple-watermark::before { left: -42vw; }
-      .hero__couple-watermark::after { right: -42vw; }
-    }
-
   </style>
 </head>
 
@@ -509,11 +441,6 @@
     >
       <div
         class="hero__watercolor"
-        aria-hidden="true"
-      ></div>
-
-      <div
-        class="hero__couple-watermark"
         aria-hidden="true"
       ></div>
 
@@ -831,7 +758,7 @@
 
         </div>
 
-        <div class="info-card">
+        <div class="info-card info-card--location">
 
           <div
             class="info-card__icon"
@@ -857,18 +784,19 @@
 
           <h3>Local</h3>
 
-          <p>
-            Confira no mapa
+          <p class="info-card__subtitle">
+            Ver localização
           </p>
 
           <a
-            class="btn btn--outline"
+            class="btn btn--maps"
             href="https://maps.app.goo.gl/gP9FjcLda17CMqM98?g_st=iw"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Abrir localização do casamento no Google Maps"
+            aria-label="Ver localização do casamento no Google Maps"
           >
-            Abrir localização
+            <span aria-hidden="true">📍</span>
+            <span>Ver no Google Maps</span>
           </a>
 
         </div>
