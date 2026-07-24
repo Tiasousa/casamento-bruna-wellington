@@ -1301,4 +1301,26 @@ button:focus-visible{
     opacity:.55;
     z-index:2;
   }
+
+  /* Véu central que "puxa" a tonalidade da foto para o meio do fundo */
+  .hero__watercolor{
+    background:
+      radial-gradient(ellipse 30% 58% at -8% 7%,rgba(18,43,80,.35),transparent 66%),
+      radial-gradient(ellipse 10% 16% at 1% 12%,rgba(92,130,186,.17),transparent 72%),
+      radial-gradient(ellipse 14% 21% at 4% 29%,rgba(53,88,140,.18),transparent 70%),
+      radial-gradient(ellipse 18% 31% at -1% 48%,rgba(38,72,120,.20),transparent 69%),
+      radial-gradient(ellipse 12% 19% at 5% 66%,rgba(78,112,165,.13),transparent 72%),
+      radial-gradient(ellipse 21% 39% at -3% 80%,rgba(27,57,100,.25),transparent 68%),
+      radial-gradient(ellipse 27% 51% at -5% 101%,rgba(17,42,78,.31),transparent 69%),
+
+      radial-gradient(ellipse 29% 55% at 108% 10%,rgba(20,46,84,.34),transparent 66%),
+      radial-gradient(ellipse 10% 16% at 99% 21%,rgba(91,129,186,.16),transparent 72%),
+      radial-gradient(ellipse 14% 22% at 96% 38%,rgba(51,87,140,.17),transparent 70%),
+      radial-gradient(ellipse 17% 29% at 101% 57%,rgba(37,72,120,.19),transparent 69%),
+      radial-gradient(ellipse 11% 18% at 96% 73%,rgba(78,113,166,.12),transparent 72%),
+      radial-gradient(ellipse 20% 37% at 103% 85%,rgba(29,61,104,.23),transparent 68%),
+      radial-gradient(ellipse 26% 49% at 104% 102%,rgba(18,44,80,.30),transparent 69%),
+
+      radial-gradient(ellipse 70% 65% at 50% 45%,rgba(70,90,130,.10),transparent 78%);
+  }
 }
