@@ -212,7 +212,8 @@ button{font-family:inherit;cursor:pointer}
     radial-gradient(ellipse 24% 50% at -4% 12%,rgba(27,51,88,.16),transparent 74%),
     radial-gradient(ellipse 22% 42% at 103% 20%,rgba(46,74,118,.14),transparent 75%),
     radial-gradient(ellipse 22% 45% at 2% 98%,rgba(27,51,88,.15),transparent 74%),
-    radial-gradient(ellipse 22% 44% at 99% 98%,rgba(219,169,169,.12),transparent 76%);
+    radial-gradient(ellipse 22% 44% at 99% 98%,rgba(219,169,169,.12),transparent 76%),
+    radial-gradient(ellipse 34% 30% at 68% 46%,rgba(230,182,178,.22),transparent 72%);
 }
 .hero__frame{
   position:absolute;
@@ -669,17 +670,17 @@ button{font-family:inherit;cursor:pointer}
   .hero__content{width:min(100%,560px)}
 
   .leaf-corner{
-    width:170px;
-    height:230px;
-    opacity:.82;
+    width:118px;
+    height:154px;
+    opacity:.7;
   }
   .leaf-corner--tr{
-    top:62px;
-    right:-48px;
+    top:10px;
+    right:8px;
   }
   .leaf-corner--bl{
-    left:-55px;
-    bottom:-25px;
+    left:8px;
+    bottom:10px;
   }
 
   .monogram--hero{
