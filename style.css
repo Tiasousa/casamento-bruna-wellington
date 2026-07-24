@@ -510,13 +510,17 @@ button{font-family:inherit;cursor:pointer}
 }
 .btn--primary:hover{background:var(--navy-deep)}
 .btn--outline{
-  color:var(--navy);
-  border-color:var(--navy);
-  background:transparent;
+  color:#1A73E8;
+  border:2px solid #1A73E8;
+  background:#ffffff;
+  box-shadow:0 10px 28px rgba(26,115,232,.12);
 }
 .btn--outline:hover{
-  color:#fff;
-  background:var(--navy);
+  color:#ffffff;
+  background:#1A73E8;
+  border-color:#1A73E8;
+  box-shadow:0 14px 32px rgba(26,115,232,.25);
+  transform:translateY(-2px);
 }
 
 /* CONFIRMAÇÃO */
