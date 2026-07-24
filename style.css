@@ -639,6 +639,7 @@ button{font-family:inherit;cursor:pointer}
 }
 
 @media (max-width:760px){
+  .hero__scroll{display:none}
   .nav__toggle{display:flex}
   .nav__menu{
     position:absolute;
