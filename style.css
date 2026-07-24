@@ -816,7 +816,7 @@ button:focus-visible{
     flex-wrap:nowrap;
     justify-content:space-between;
     width:100%;
-    gap:0;
+    gap:.35rem;
     border-bottom:0;
     background:transparent;
   }
@@ -829,11 +829,19 @@ button:focus-visible{
 
   .nav__menu a{
     display:block;
-    padding:.3rem .15rem;
-    font-size:.58rem;
-    letter-spacing:.02em;
+    padding:.55rem .2rem;
+    font-size:.5rem;
+    letter-spacing:.01em;
     white-space:nowrap;
-    color:#1A73E8;
+    color:#ffffff;
+    background:var(--navy);
+    border-radius:999px;
+    box-shadow:0 8px 18px -10px rgba(16,32,59,.5);
+  }
+
+  .nav__menu a:hover{
+    color:#ffffff;
+    background:var(--navy-deep);
   }
   /* ---- FIM DA CORREÇÃO ---- */
 
