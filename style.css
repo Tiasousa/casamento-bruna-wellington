@@ -803,6 +803,8 @@ button:focus-visible{
 
   .nav__inner{
     justify-content:center;
+    padding-left:.6rem;
+    padding-right:.6rem;
   }
 
   .nav__menu{
@@ -812,6 +814,8 @@ button:focus-visible{
     display:flex;
     flex-direction:row;
     flex-wrap:nowrap;
+    justify-content:space-between;
+    width:100%;
     gap:0;
     border-bottom:0;
     background:transparent;
@@ -819,10 +823,13 @@ button:focus-visible{
 
   .nav__menu li{
     border-top:0;
+    flex:1 1 0;
+    text-align:center;
   }
 
   .nav__menu a{
-    padding:.3rem .25rem;
+    display:block;
+    padding:.3rem .15rem;
     font-size:.58rem;
     letter-spacing:.02em;
     white-space:nowrap;
