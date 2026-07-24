@@ -1023,3 +1023,90 @@ button:focus-visible{
     width:min(100%,450px);
   }
 }
+
+/* ============================================================
+   FASE 1 — INFORMAÇÕES DO EVENTO
+   HTML e CSS alinhados com as classes reais do projeto
+   ============================================================ */
+.btn--maps{
+  color:#ffffff;
+  border-color:#1A73E8;
+  background:#1A73E8;
+  box-shadow:0 10px 24px rgba(26,115,232,.20);
+}
+
+.btn--maps:hover,
+.btn--maps:focus-visible{
+  color:#ffffff;
+  border-color:#1557B0;
+  background:#1557B0;
+  box-shadow:0 12px 28px rgba(26,115,232,.27);
+  transform:translateY(-2px);
+}
+
+.info-card__subtitle{
+  color:var(--ink-soft);
+}
+
+@media (max-width:760px){
+  .section--informacoes{
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+
+  .section--informacoes .info-grid{
+    width:100%;
+    max-width:520px;
+    margin:1.7rem auto 0;
+    grid-template-columns:1fr;
+    gap:.8rem;
+  }
+
+  .section--informacoes .info-card{
+    min-height:0;
+    padding:1.2rem 1rem;
+    border-radius:16px;
+  }
+
+  .section--informacoes .info-card__icon{
+    width:34px;
+    height:34px;
+    margin-bottom:.45rem;
+  }
+
+  .section--informacoes .info-card h3{
+    margin-bottom:.12rem;
+    font-size:1.06rem;
+    line-height:1.2;
+  }
+
+  .section--informacoes .info-card p{
+    font-size:.92rem;
+    line-height:1.4;
+  }
+
+  .section--informacoes .info-card--location{
+    padding-bottom:1.15rem;
+  }
+
+  .section--informacoes .info-card--location .btn--maps{
+    width:min(100%,310px);
+    min-height:44px;
+    margin-top:.75rem;
+    padding:.75rem 1rem;
+    font-size:.74rem;
+    letter-spacing:.045em;
+    white-space:nowrap;
+  }
+}
+
+@media (max-width:390px){
+  .section--informacoes .info-card{
+    padding:1.1rem .85rem;
+  }
+
+  .section--informacoes .info-card--location .btn--maps{
+    width:100%;
+    font-size:.7rem;
+  }
+}
