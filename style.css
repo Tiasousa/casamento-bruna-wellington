@@ -1276,6 +1276,13 @@ button:focus-visible{
     mask-image:linear-gradient(to right,#000 0%,#000 32%,transparent 100%);
   }
 
-  .hero::before{left:-14%}
-  .hero::after{right:-14%}
+  .hero::before{
+    left:-14%;
+    background-position:22% 28%;
+  }
+
+  .hero::after{
+    right:-14%;
+    background-position:70% 18%;
+  }
 }
