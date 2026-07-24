@@ -1110,3 +1110,37 @@ button:focus-visible{
     font-size:.7rem;
   }
 }
+
+/* ============================================================
+   FASE 2 — BOTÃO PIX AZUL
+   Aplicado diretamente ao botão real #btnCopyPix
+   ============================================================ */
+#btnCopyPix{
+  width:100%;
+  color:#ffffff;
+  border-color:#1A73E8;
+  background:#1A73E8;
+  box-shadow:0 10px 24px rgba(26,115,232,.20);
+}
+
+#btnCopyPix:hover,
+#btnCopyPix:focus-visible{
+  color:#ffffff;
+  border-color:#1557B0;
+  background:#1557B0;
+  box-shadow:0 12px 28px rgba(26,115,232,.27);
+  transform:translateY(-2px);
+}
+
+#btnCopyPix:active{
+  transform:scale(.97);
+}
+
+@media (max-width:760px){
+  #btnCopyPix{
+    min-height:44px;
+    padding:.78rem 1rem;
+    font-size:.76rem;
+    letter-spacing:.045em;
+  }
+}
