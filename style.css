@@ -687,22 +687,23 @@ button{font-family:inherit;cursor:pointer}
   .nav__menu a::after{display:none}
 
   .hero{
-  position:relative;
-  min-height:100svh;
-  padding:6.3rem 1.4rem 4.5rem;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  overflow:hidden;
-  background:
-    radial-gradient(ellipse 16% 14% at 43% 42%,rgba(246,232,230,.075),transparent 76%),
-    radial-gradient(ellipse 13% 11% at 58% 49%,rgba(248,236,234,.060),transparent 77%),
-    radial-gradient(ellipse 14% 12% at 49% 61%,rgba(245,229,227,.050),transparent 78%),
-    repeating-linear-gradient(0deg,rgba(16,32,59,.010) 0,rgba(16,32,59,.010) 1px,transparent 1px,transparent 4px),
-    repeating-linear-gradient(90deg,rgba(198,161,91,.008) 0,rgba(198,161,91,.008) 1px,transparent 1px,transparent 5px),
-    linear-gradient(rgba(255,253,250,.915),rgba(255,253,250,.915)),
-    var(--cream);
+    position:relative;
+    min-height:100svh;
+    padding:6.3rem 1.4rem 4.5rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 16% 14% at 43% 42%,rgba(246,232,230,.075),transparent 76%),
+      radial-gradient(ellipse 13% 11% at 58% 49%,rgba(248,236,234,.060),transparent 77%),
+      radial-gradient(ellipse 14% 12% at 49% 61%,rgba(245,229,227,.050),transparent 78%),
+      repeating-linear-gradient(0deg,rgba(16,32,59,.010) 0,rgba(16,32,59,.010) 1px,transparent 1px,transparent 4px),
+      repeating-linear-gradient(90deg,rgba(198,161,91,.008) 0,rgba(198,161,91,.008) 1px,transparent 1px,transparent 5px),
+      linear-gradient(rgba(255,253,250,.915),rgba(255,253,250,.915)),
+      var(--cream);
+  }
 }
 
 @media (max-width:480px){
@@ -986,168 +987,19 @@ button:focus-visible{
   }
 }
 
-
 /* ============================================================
-   V9 — BOTÃO DA LISTA DE PRESENTES
-   Rosa blush suave com contraste suficiente para indicar clique
+   BOTÃO LISTA DE PRESENTES
+   Mesmo formato do WhatsApp, alterando apenas a cor para rosa.
    ============================================================ */
 .btn--gift{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:.62rem;
-  min-height:50px;
-  margin-top:1.15rem;
-  padding:.82rem 1.45rem;
-  border:1px solid rgba(184,111,130,.46);
-  border-radius:999px;
-  background:
-    linear-gradient(180deg,rgba(255,255,255,.62),rgba(255,255,255,0)),
-    #f6e4e9;
-  color:#9c586a;
-  font-weight:500;
-  letter-spacing:.035em;
-  text-decoration:none;
-  box-shadow:
-    0 8px 22px rgba(155,86,105,.13),
-    inset 0 1px 0 rgba(255,255,255,.82);
-  cursor:pointer;
-  transition:
-    transform .22s ease,
-    box-shadow .22s ease,
-    background-color .22s ease,
-    border-color .22s ease,
-    color .22s ease;
-}
-
-.btn--gift .btn__icon{
-  flex:0 0 auto;
-  width:20px;
-  height:20px;
-  stroke-width:1.7;
-}
-
-.btn--gift:hover,
-.btn--gift:focus-visible{
-  transform:translateY(-2px);
-  border-color:rgba(165,86,107,.7);
-  background-color:#f1d5dd;
-  color:#844457;
-  box-shadow:
-    0 12px 28px rgba(155,86,105,.2),
-    inset 0 1px 0 rgba(255,255,255,.88);
-}
-
-.btn--gift:active{
-  transform:translateY(0);
-  box-shadow:
-    0 5px 14px rgba(155,86,105,.14),
-    inset 0 1px 0 rgba(255,255,255,.78);
-}
-
-@media (max-width:760px){
-  .section--presente .btn--gift{
-    width:min(100%,420px);
-    margin-top:1rem;
-  }
-}
-
-
-/* ============================================================
-   V10 — BOTÃO LISTA DE PRESENTES EM ROSA SÓLIDO
-   Mesmo peso visual do botão de confirmação pelo WhatsApp
-   ============================================================ */
-.btn--gift{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:.62rem;
-  min-height:50px;
-  margin-top:1.15rem;
-  padding:.82rem 1.45rem;
-  border:1px solid #c98fa0;
-  border-radius:999px;
-  background:#c98fa0;
+  margin-top:1.1rem;
   color:#ffffff;
-  font-weight:500;
-  letter-spacing:.035em;
-  text-decoration:none;
-  box-shadow:0 10px 24px rgba(165,91,112,.2);
-  cursor:pointer;
-  transition:
-    transform .22s ease,
-    box-shadow .22s ease,
-    background-color .22s ease,
-    border-color .22s ease;
-}
-
-.btn--gift .btn__icon{
-  flex:0 0 auto;
-  width:20px;
-  height:20px;
-  color:#ffffff;
-  stroke:currentColor;
-}
-
-.btn--gift:hover,
-.btn--gift:focus-visible{
-  transform:translateY(-2px);
-  border-color:#b97a8d;
-  background:#b97a8d;
-  color:#ffffff;
-  box-shadow:0 14px 30px rgba(165,91,112,.28);
-}
-
-.btn--gift:active{
-  transform:translateY(0);
-  background:#ad6f82;
-  border-color:#ad6f82;
-  box-shadow:0 7px 17px rgba(165,91,112,.2);
-}
-
-@media (max-width:760px){
-  .section--presente .btn--gift{
-    width:min(100%,450px);
-    margin-top:1rem;
-  }
-}
-
-
-/* ============================================================
-   V11 — LISTA DE PRESENTES IGUAL AO BOTÃO DO WHATSAPP
-   Mesmas dimensões, tipografia, bordas e sombra; somente rosa.
-   O seletor pelo link garante o estilo mesmo em caso de cache
-   ou de uma classe antiga permanecer no HTML publicado.
-   ============================================================ */
-.section--presente a.btn--gift,
-.section--presente a[href*="lista.camicado.com.br"]{
-  min-height:48px;
-  padding:.95rem 1.9rem;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:.55rem;
-  border:1px solid transparent;
-  border-radius:999px;
-  background:#c88d9c;
-  color:#ffffff;
-  font-size:.85rem;
-  font-weight:400;
-  line-height:1;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  text-decoration:none;
+  border-color:#C98FA0;
+  background:#C98FA0;
   box-shadow:var(--shadow-soft);
-  cursor:pointer;
-  transition:
-    transform .25s var(--ease),
-    background .25s var(--ease),
-    color .25s var(--ease),
-    box-shadow .25s var(--ease);
 }
 
-.section--presente a.btn--gift .btn__icon,
-.section--presente a[href*="lista.camicado.com.br"] .btn__icon{
+.btn--gift .btn__icon{
   width:20px;
   height:20px;
   flex:0 0 auto;
@@ -1155,26 +1007,15 @@ button:focus-visible{
   stroke:currentColor;
 }
 
-.section--presente a.btn--gift:hover,
-.section--presente a.btn--gift:focus-visible,
-.section--presente a[href*="lista.camicado.com.br"]:hover,
-.section--presente a[href*="lista.camicado.com.br"]:focus-visible{
-  background:#b97a8d;
+.btn--gift:hover,
+.btn--gift:focus-visible{
   color:#ffffff;
-  transform:translateY(-2px);
-  box-shadow:0 14px 30px rgba(165,91,112,.25);
-}
-
-.section--presente a.btn--gift:active,
-.section--presente a[href*="lista.camicado.com.br"]:active{
-  background:#ad6f82;
-  color:#ffffff;
-  transform:scale(.97);
+  border-color:#B97A8D;
+  background:#B97A8D;
 }
 
 @media (max-width:760px){
-  .section--presente a.btn--gift,
-  .section--presente a[href*="lista.camicado.com.br"]{
+  .section--presente .btn--gift{
     width:min(100%,450px);
   }
 }
