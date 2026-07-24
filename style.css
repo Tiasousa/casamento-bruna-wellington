@@ -197,10 +197,12 @@ button{font-family:inherit;cursor:pointer}
   text-align:center;
   overflow:hidden;
   background:
-    radial-gradient(ellipse 18% 16% at 44% 41%, rgba(246,232,230,.10), transparent 74%),
-    radial-gradient(ellipse 14% 12% at 57% 49%, rgba(248,236,234,.08), transparent 75%),
-    radial-gradient(ellipse 16% 14% at 49% 61%, rgba(245,229,227,.07), transparent 76%),
-    linear-gradient(rgba(255,253,250,.90),rgba(255,253,250,.90)),
+    radial-gradient(ellipse 16% 14% at 43% 42%,rgba(246,232,230,.075),transparent 76%),
+    radial-gradient(ellipse 13% 11% at 58% 49%,rgba(248,236,234,.060),transparent 77%),
+    radial-gradient(ellipse 14% 12% at 49% 61%,rgba(245,229,227,.050),transparent 78%),
+    repeating-linear-gradient(0deg,rgba(16,32,59,.010) 0,rgba(16,32,59,.010) 1px,transparent 1px,transparent 4px),
+    repeating-linear-gradient(90deg,rgba(198,161,91,.008) 0,rgba(198,161,91,.008) 1px,transparent 1px,transparent 5px),
+    linear-gradient(rgba(255,253,250,.915),rgba(255,253,250,.915)),
     var(--cream);
 }
 .hero__watercolor{
@@ -209,38 +211,46 @@ button{font-family:inherit;cursor:pointer}
   z-index:0;
   pointer-events:none;
   background:
-    radial-gradient(ellipse 28% 54% at -7% 8%, rgba(18,44,82,.34), transparent 67%),
-    radial-gradient(ellipse 12% 18% at 2% 18%, rgba(76,114,172,.18), transparent 72%),
-    radial-gradient(ellipse 17% 26% at 5% 41%, rgba(44,77,126,.16), transparent 70%),
-    radial-gradient(ellipse 20% 38% at -2% 76%, rgba(26,56,98,.24), transparent 69%),
-    radial-gradient(ellipse 26% 48% at -3% 98%, rgba(18,44,82,.30), transparent 70%),
+    radial-gradient(ellipse 30% 58% at -8% 7%,rgba(18,43,80,.35),transparent 66%),
+    radial-gradient(ellipse 10% 16% at 1% 12%,rgba(92,130,186,.17),transparent 72%),
+    radial-gradient(ellipse 14% 21% at 4% 29%,rgba(53,88,140,.18),transparent 70%),
+    radial-gradient(ellipse 18% 31% at -1% 48%,rgba(38,72,120,.20),transparent 69%),
+    radial-gradient(ellipse 12% 19% at 5% 66%,rgba(78,112,165,.13),transparent 72%),
+    radial-gradient(ellipse 21% 39% at -3% 80%,rgba(27,57,100,.25),transparent 68%),
+    radial-gradient(ellipse 27% 51% at -5% 101%,rgba(17,42,78,.31),transparent 69%),
 
-    radial-gradient(ellipse 27% 50% at 107% 12%, rgba(19,46,86,.33), transparent 67%),
-    radial-gradient(ellipse 11% 18% at 98% 28%, rgba(79,118,178,.17), transparent 72%),
-    radial-gradient(ellipse 16% 25% at 95% 56%, rgba(45,80,131,.16), transparent 70%),
-    radial-gradient(ellipse 19% 36% at 101% 82%, rgba(27,59,103,.22), transparent 69%),
-    radial-gradient(ellipse 24% 46% at 102% 99%, rgba(20,46,86,.29), transparent 70%),
+    radial-gradient(ellipse 29% 55% at 108% 10%,rgba(20,46,84,.34),transparent 66%),
+    radial-gradient(ellipse 10% 16% at 99% 21%,rgba(91,129,186,.16),transparent 72%),
+    radial-gradient(ellipse 14% 22% at 96% 38%,rgba(51,87,140,.17),transparent 70%),
+    radial-gradient(ellipse 17% 29% at 101% 57%,rgba(37,72,120,.19),transparent 69%),
+    radial-gradient(ellipse 11% 18% at 96% 73%,rgba(78,113,166,.12),transparent 72%),
+    radial-gradient(ellipse 20% 37% at 103% 85%,rgba(29,61,104,.23),transparent 68%),
+    radial-gradient(ellipse 26% 49% at 104% 102%,rgba(18,44,80,.30),transparent 69%),
 
-    radial-gradient(ellipse 11% 9% at 43% 43%, rgba(247,236,234,.09), transparent 77%),
-    radial-gradient(ellipse 10% 8% at 58% 50%, rgba(247,234,232,.08), transparent 78%),
-    radial-gradient(ellipse 9% 8% at 48% 61%, rgba(245,229,227,.06), transparent 79%);
+    radial-gradient(ellipse 10% 8% at 42% 43%,rgba(247,235,233,.070),transparent 79%),
+    radial-gradient(ellipse 9% 7% at 58% 50%,rgba(247,234,232,.060),transparent 80%),
+    radial-gradient(ellipse 8% 7% at 49% 61%,rgba(245,229,227,.045),transparent 81%);
 }
 .hero__frame{
   position:absolute;
   inset:20px;
   z-index:1;
-  border:1px solid rgba(198,161,91,.72);
+  border:1px solid rgba(198,161,91,.76);
   box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.22),
-    0 0 0 1px rgba(198,161,91,.08);
+    inset 0 0 0 1px rgba(255,255,255,.28),
+    inset 0 0 18px rgba(198,161,91,.035),
+    0 0 0 1px rgba(198,161,91,.08),
+    0 1px 0 rgba(255,255,255,.35);
   pointer-events:none;
 }
 .hero__frame::before{
   content:"";
   position:absolute;
   inset:8px;
-  border:1px solid rgba(198,161,91,.34);
-  box-shadow:inset 0 0 18px rgba(198,161,91,.04);
+  border:1px solid rgba(198,161,91,.36);
+  box-shadow:
+    inset 0 0 14px rgba(198,161,91,.035),
+    0 0 10px rgba(198,161,91,.025);
 }
 .hero__content{
   position:relative;
@@ -686,10 +696,12 @@ button{font-family:inherit;cursor:pointer}
   text-align:center;
   overflow:hidden;
   background:
-    radial-gradient(ellipse 18% 16% at 44% 41%, rgba(246,232,230,.10), transparent 74%),
-    radial-gradient(ellipse 14% 12% at 57% 49%, rgba(248,236,234,.08), transparent 75%),
-    radial-gradient(ellipse 16% 14% at 49% 61%, rgba(245,229,227,.07), transparent 76%),
-    linear-gradient(rgba(255,253,250,.90),rgba(255,253,250,.90)),
+    radial-gradient(ellipse 16% 14% at 43% 42%,rgba(246,232,230,.075),transparent 76%),
+    radial-gradient(ellipse 13% 11% at 58% 49%,rgba(248,236,234,.060),transparent 77%),
+    radial-gradient(ellipse 14% 12% at 49% 61%,rgba(245,229,227,.050),transparent 78%),
+    repeating-linear-gradient(0deg,rgba(16,32,59,.010) 0,rgba(16,32,59,.010) 1px,transparent 1px,transparent 4px),
+    repeating-linear-gradient(90deg,rgba(198,161,91,.008) 0,rgba(198,161,91,.008) 1px,transparent 1px,transparent 5px),
+    linear-gradient(rgba(255,253,250,.915),rgba(255,253,250,.915)),
     var(--cream);
 }
 
