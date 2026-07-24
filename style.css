@@ -208,22 +208,64 @@ button{font-family:inherit;cursor:pointer}
   inset:0;
   z-index:0;
   pointer-events:none;
+  overflow:hidden;
   background:
-    radial-gradient(ellipse 18% 34% at -2% 8%,rgba(16,32,59,.28),transparent 68%),
-    radial-gradient(ellipse 25% 46% at 3% 20%,rgba(27,51,88,.22),transparent 70%),
-    radial-gradient(ellipse 17% 30% at 0% 40%,rgba(46,74,118,.18),transparent 67%),
-    radial-gradient(ellipse 22% 38% at -3% 66%,rgba(27,51,88,.20),transparent 69%),
-    radial-gradient(ellipse 25% 42% at 2% 94%,rgba(16,32,59,.23),transparent 71%),
-    radial-gradient(ellipse 17% 31% at 101% 10%,rgba(16,32,59,.22),transparent 68%),
-    radial-gradient(ellipse 24% 43% at 98% 27%,rgba(46,74,118,.19),transparent 70%),
-    radial-gradient(ellipse 17% 32% at 102% 52%,rgba(27,51,88,.16),transparent 68%),
-    radial-gradient(ellipse 23% 40% at 99% 82%,rgba(46,74,118,.18),transparent 70%),
-    radial-gradient(ellipse 21% 34% at 104% 100%,rgba(16,32,59,.21),transparent 69%),
-    radial-gradient(ellipse 26% 24% at 8% 3%,rgba(255,255,255,.28),transparent 72%),
-    radial-gradient(ellipse 24% 22% at 92% 6%,rgba(255,255,255,.24),transparent 72%),
-    radial-gradient(ellipse 36% 28% at 67% 47%,rgba(230,182,178,.16),transparent 73%);
-  filter:saturate(1.06) contrast(1.03);
+    /* esquerda: concentração maior no alto */
+    radial-gradient(ellipse 22% 42% at -5% 6%,rgba(16,32,59,.39),transparent 63%),
+    radial-gradient(ellipse 31% 54% at 1% 18%,rgba(27,51,88,.29),transparent 66%),
+    radial-gradient(ellipse 17% 29% at 5% 34%,rgba(58,86,126,.20),transparent 60%),
+    radial-gradient(ellipse 25% 41% at -4% 54%,rgba(27,51,88,.23),transparent 65%),
+    radial-gradient(ellipse 19% 34% at 3% 76%,rgba(46,74,118,.19),transparent 62%),
+    radial-gradient(ellipse 28% 46% at -3% 101%,rgba(16,32,59,.27),transparent 67%),
+
+    /* direita: mais suave no alto e mais profunda embaixo */
+    radial-gradient(ellipse 18% 31% at 103% 5%,rgba(46,74,118,.20),transparent 62%),
+    radial-gradient(ellipse 25% 41% at 100% 25%,rgba(27,51,88,.22),transparent 65%),
+    radial-gradient(ellipse 16% 28% at 96% 44%,rgba(67,94,133,.16),transparent 59%),
+    radial-gradient(ellipse 24% 39% at 103% 63%,rgba(27,51,88,.23),transparent 64%),
+    radial-gradient(ellipse 29% 48% at 100% 86%,rgba(16,32,59,.31),transparent 66%),
+    radial-gradient(ellipse 20% 34% at 105% 103%,rgba(46,74,118,.28),transparent 62%),
+
+    /* falhas claras que quebram a uniformidade da tinta */
+    radial-gradient(ellipse 12% 20% at 6% 22%,rgba(255,253,250,.42),transparent 68%),
+    radial-gradient(ellipse 11% 18% at 2% 61%,rgba(255,253,250,.34),transparent 67%),
+    radial-gradient(ellipse 13% 20% at 96% 35%,rgba(255,253,250,.31),transparent 68%),
+    radial-gradient(ellipse 12% 19% at 99% 73%,rgba(255,253,250,.35),transparent 67%),
+
+    /* toque rosado muito discreto no centro */
+    radial-gradient(ellipse 35% 28% at 68% 47%,rgba(230,182,178,.14),transparent 73%);
+  filter:saturate(1.12) contrast(1.07);
 }
+
+.hero__watercolor::before{
+  content:"";
+  position:absolute;
+  inset:-5%;
+  background:
+    radial-gradient(circle at 3% 10%,rgba(16,32,59,.18) 0 2%,transparent 7%),
+    radial-gradient(circle at 7% 29%,rgba(27,51,88,.14) 0 3%,transparent 8%),
+    radial-gradient(circle at 1% 47%,rgba(46,74,118,.13) 0 2%,transparent 7%),
+    radial-gradient(circle at 5% 70%,rgba(16,32,59,.12) 0 3%,transparent 9%),
+    radial-gradient(circle at 98% 18%,rgba(46,74,118,.12) 0 2%,transparent 7%),
+    radial-gradient(circle at 95% 55%,rgba(27,51,88,.13) 0 3%,transparent 8%),
+    radial-gradient(circle at 99% 83%,rgba(16,32,59,.17) 0 3%,transparent 9%);
+  opacity:.72;
+  filter:blur(12px);
+  transform:scale(1.04);
+}
+
+.hero__watercolor::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:.16;
+  mix-blend-mode:multiply;
+  background-image:
+    repeating-radial-gradient(circle at 0 0,rgba(16,32,59,.14) 0 1px,transparent 1px 4px),
+    repeating-linear-gradient(108deg,rgba(255,255,255,.10) 0 1px,transparent 1px 5px);
+  background-size:7px 7px,13px 13px;
+}
+
 .hero__frame{
   position:absolute;
   inset:20px;
