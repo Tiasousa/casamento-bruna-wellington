@@ -1362,7 +1362,7 @@ button:focus-visible{
     right:auto;
     width:44vw;
     opacity:.20;
-    filter:grayscale(100%) sepia(12%) hue-rotate(168deg) saturate(70%) contrast(80%) brightness(112%) blur(1.4px);
+    filter:grayscale(30%) sepia(30%) hue-rotate(8deg) saturate(150%) contrast(90%) brightness(106%) blur(1.4px);
     -webkit-mask-image:linear-gradient(to right,#000 0%,#000 32%,transparent 100%);
     mask-image:linear-gradient(to right,#000 0%,#000 32%,transparent 100%);
   }
