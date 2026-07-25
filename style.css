@@ -427,12 +427,93 @@ button{font-family:inherit;cursor:pointer}
   margin:0 auto;
   padding:5.5rem 1.4rem;
   text-align:center;
+  scroll-margin-top:84px;
+}
+.hero{
+  scroll-margin-top:84px;
 }
 .section--informacoes{
   position:relative;
   background:
     radial-gradient(ellipse 65% 75% at 50% 32%,rgba(219,169,169,.24),transparent 70%),
     transparent;
+}
+
+/* NOSSA HISTÓRIA — LINHA DO TEMPO */
+.section--historia{
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 25%,rgba(199,161,90,.10),transparent 68%),
+    transparent;
+}
+.timeline{
+  position:relative;
+  max-width:640px;
+  margin:2.8rem auto 0;
+  padding-left:2.4rem;
+  text-align:left;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  top:6px;
+  bottom:6px;
+  left:8px;
+  width:1px;
+  background:linear-gradient(to bottom,var(--gold),rgba(198,161,91,.25));
+}
+.timeline__item{
+  position:relative;
+  margin-bottom:2.6rem;
+}
+.timeline__item:last-child{
+  margin-bottom:0;
+}
+.timeline__item::before{
+  content:"";
+  position:absolute;
+  top:6px;
+  left:-2.4rem;
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 0 4px var(--paper),0 0 0 5px rgba(198,161,91,.4);
+}
+.timeline__year{
+  display:block;
+  margin-bottom:.4rem;
+  color:var(--navy-deep);
+  font-family:var(--font-display);
+  font-size:1.3rem;
+  font-weight:600;
+  letter-spacing:.03em;
+}
+.timeline__text{
+  color:var(--ink-soft);
+  font-size:1rem;
+  line-height:1.75;
+}
+
+@media (max-width:760px){
+  .timeline{
+    padding-left:1.8rem;
+    margin-top:2.2rem;
+  }
+  .timeline__item{
+    margin-bottom:2.1rem;
+  }
+  .timeline__item::before{
+    left:-1.8rem;
+    width:9px;
+    height:9px;
+  }
+  .timeline__year{
+    font-size:1.1rem;
+  }
+  .timeline__text{
+    font-size:.92rem;
+    line-height:1.68;
+  }
 }
 .section__eyebrow{
   margin-bottom:.6rem;
@@ -786,6 +867,13 @@ button:focus-visible{
    Ajustes exclusivos para telas de celular
    ============================================================ */
 @media (max-width:760px){
+  .section{
+    scroll-margin-top:96px;
+  }
+  .hero{
+    scroll-margin-top:96px;
+  }
+
   .nav__inner{
     min-height:72px;
     padding:.75rem 1.35rem;
@@ -1247,8 +1335,8 @@ button:focus-visible{
   background-repeat:no-repeat;
   background-size:cover;
   background-position:center;
-  opacity:.15;
-  filter:grayscale(100%) sepia(12%) hue-rotate(168deg) saturate(75%) contrast(82%) brightness(110%) blur(1px);
+  opacity:.18;
+  filter:grayscale(35%) sepia(22%) hue-rotate(168deg) saturate(160%) contrast(88%) brightness(108%) blur(1px);
   mix-blend-mode:multiply;
 }
 
