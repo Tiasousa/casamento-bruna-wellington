@@ -1345,21 +1345,7 @@ button:focus-visible{
    MARCA-D'ÁGUA DO CASAL NAS LATERAIS
    ============================================================ */
 .hero::before{
-  content:"";
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  width:100%;
-  z-index:1;
-  pointer-events:none;
-  background-image:url("assets/fotos/marca-casal.png");
-  background-repeat:no-repeat;
-  background-size:cover;
-  background-position:32% 30%;
-  opacity:.32;
-  filter:grayscale(30%) sepia(30%) hue-rotate(8deg) saturate(150%) contrast(90%) brightness(106%) blur(1px);
-  mix-blend-mode:multiply;
+  content:none;
 }
 
 .hero::after{
@@ -1368,16 +1354,7 @@ button:focus-visible{
 
 @media (max-width:760px){
   .hero::before{
-    top:0;
-    bottom:0;
-    left:0;
-    right:auto;
-    width:100%;
-    opacity:.42;
-    background-position:30% 30%;
-    filter:grayscale(30%) sepia(30%) hue-rotate(8deg) saturate(150%) contrast(90%) brightness(106%) blur(1.4px);
-    -webkit-mask-image:none;
-    mask-image:none;
+    content:none;
   }
 
   .hero::after{
@@ -1394,7 +1371,7 @@ button:focus-visible{
     z-index:2;
   }
 
-  /* Véu central que "puxa" a tonalidade da foto para o meio do fundo */
+  /* Véu central decorativo (sem foto), mantém o layout com leve tonalidade */
   .hero__watercolor{
     background:
       radial-gradient(ellipse 30% 58% at -8% 7%,rgba(18,43,80,.35),transparent 66%),
