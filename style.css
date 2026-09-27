@@ -255,7 +255,7 @@ button{font-family:inherit;cursor:pointer}
 .hero__content{
   position:relative;
   z-index:3;
-  width:min(100%,720px);
+  width:min(88%,680px);
   color:var(--navy-deep);
   padding:2.4rem 2.2rem;
   border-radius:32px;
@@ -972,8 +972,8 @@ button:focus-visible{
   }
 
   .hero__content{
-    width:100%;
-    max-width:560px;
+    width:92%;
+    max-width:520px;
   }
 
   .monogram--hero{
@@ -1359,9 +1359,10 @@ button:focus-visible{
   background-attachment:fixed;
 }
 
-/* Painel claro sobre a foto — mesma cor/estilo de letra de sempre, só a foto muda */
+/* Painel claro sobre a foto — mais translúcido, deixa a foto aparecer atrás.
+   Cor e estilo de letra continuam exatamente os mesmos. */
 .hero__content{
-  background:rgba(250,248,244,.86);
+  background:rgba(250,248,244,.74);
 }
 
 @media (max-width:760px){
