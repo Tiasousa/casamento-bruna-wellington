@@ -688,7 +688,7 @@
         vistos[midia.id] = true;
         return midia.tipo === "foto" || midia.tipo === "video";
       });
-      if (!albumMidias.length) return;
+
       clearInterval(timer);
       timer = null;
       indiceTroca = 0;
