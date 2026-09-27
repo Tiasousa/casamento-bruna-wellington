@@ -55,7 +55,7 @@ body::before{
   inset:0;
   z-index:-1;
   background-image:
-    linear-gradient(rgba(250,248,244,.93),rgba(250,248,244,.93)),
+    linear-gradient(rgba(250,248,244,.78),rgba(250,248,244,.82)),
     url("assets/fotos/marca-casal.png");
   background-size:cover;
   background-position:center 22%;
