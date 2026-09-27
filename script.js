@@ -491,232 +491,194 @@
   iniciarGaleria();
 
   /* ============================================================
-     Álbum do Casamento — 9 fotos visíveis com troca automática,
-     com lightbox próprio. Independente da galeria "Nossa História"
-     acima, não mexe em nada do que já funciona lá.
+     Álbum do Casamento — fotos e vídeos, 9 itens visíveis.
+     Uma mídia é trocada a cada 8 segundos, como em Nossa História.
      ============================================================ */
   (function () {
     var albumGaleria = document.getElementById("albumCasamento");
+    if (!albumGaleria) return;
 
-    if (!albumGaleria) {
-      return;
-    }
-
-    var albumFotos = Array.prototype.map.call(
-      albumGaleria.querySelectorAll("img"),
-      function (img) {
-        return img.getAttribute("src");
-      }
-    );
-
-    // Mantém a lista completa para a ampliação, mas exibe só nove cartões.
-    var albumLimite = 9;
-    var albumSlot = 0;
-    var albumTimer = null;
-    var albumFadeTimer = null;
-    var albumTrocaPendente = false;
-    var albumAberto = false;
-    var albumFocoAnterior = null;
-    var albumMovimento = window.matchMedia("(prefers-reduced-motion: reduce)");
-    var albumItens = Array.prototype.slice.call(
-      albumGaleria.querySelectorAll(".gallery__item")
-    );
-    albumItens.slice(albumLimite).forEach(function (item) { item.remove(); });
-    albumItens = albumItens.slice(0, albumLimite);
-    var albumFila = [];
-
-    function trocarFotoAlbum() {
-      if (document.hidden || albumAberto || albumMovimento.matches || albumTrocaPendente ||
-          albumFotos.length <= albumItens.length || !albumItens.length) return;
-      var exibidas = albumItens.map(function (item) {
-        return item.querySelector("img").getAttribute("src");
-      });
-      if (!albumFila.length) {
-        albumFila = embaralhar(albumFotos.filter(function (foto) {
-          return exibidas.indexOf(foto) === -1;
-        }));
-      }
-      var caminho = albumFila.shift();
-      if (!caminho) return;
-      var item = albumItens[albumSlot];
-      albumTrocaPendente = true;
-      carregarImagem(caminho).then(function () {
-        if (albumAberto || document.hidden || albumMovimento.matches) {
-          albumFila.unshift(caminho);
-          albumTrocaPendente = false;
-          return;
-        }
-        item.classList.add("is-changing");
-        albumFadeTimer = setTimeout(function () {
-          if (!albumAberto && !document.hidden && !albumMovimento.matches) {
-            item.querySelector("img").src = caminho;
-            albumSlot = (albumSlot + 1) % albumItens.length;
-          } else {
-            albumFila.unshift(caminho);
-          }
-          item.classList.remove("is-changing");
-          albumTrocaPendente = false;
-        }, DURACAO_FADE);
-      }).catch(function () {
-        albumTrocaPendente = false;
+    var albumMidias = [];
+    for (var foto = 1; foto <= 40; foto += 1) {
+      albumMidias.push({
+        tipo: "foto",
+        src: "assets/casamento/casamento" + String(foto).padStart(2, "0") + ".jpg",
+        titulo: "Foto " + foto + " do casamento"
       });
     }
 
-    function iniciarTrocaAlbum() {
-      if (!albumTimer && !albumMovimento.matches && albumFotos.length > albumItens.length) {
-        albumTimer = setInterval(trocarFotoAlbum, INTERVALO_TROCA);
-      }
-    }
-    iniciarTrocaAlbum();
-
-    var albumIndice = 0;
-    var albumLightbox = null;
-
-    function criarAlbumLightbox() {
-      if (document.getElementById("albumLightbox")) {
-        return;
-      }
-
-      var lightbox = document.createElement("div");
-      lightbox.id = "albumLightbox";
-      lightbox.className = "gallery-lightbox";
-      lightbox.setAttribute("role", "dialog");
-      lightbox.setAttribute("aria-modal", "true");
-      lightbox.setAttribute("aria-label", "Álbum do casamento em tela cheia");
-
-      lightbox.innerHTML =
-        '<button class="gallery-lightbox__close" type="button" aria-label="Fechar">×</button>' +
-        '<button class="gallery-lightbox__prev" type="button" aria-label="Foto anterior">‹</button>' +
-        '<img class="gallery-lightbox__image" alt="Bruna e Wellington — casamento">' +
-        '<button class="gallery-lightbox__next" type="button" aria-label="Próxima foto">›</button>' +
-        '<div class="gallery-lightbox__counter" aria-live="polite"></div>';
-
-      document.body.appendChild(lightbox);
-
-      lightbox
-        .querySelector(".gallery-lightbox__close")
-        .addEventListener("click", fecharAlbumLightbox);
-
-      lightbox
-        .querySelector(".gallery-lightbox__prev")
-        .addEventListener("click", function () {
-          navegarAlbumLightbox(-1);
-        });
-
-      lightbox
-        .querySelector(".gallery-lightbox__next")
-        .addEventListener("click", function () {
-          navegarAlbumLightbox(1);
-        });
-
-      lightbox.addEventListener("click", function (evento) {
-        if (evento.target === lightbox) {
-          fecharAlbumLightbox();
-        }
+    [
+      ["1RiJq2ah6TNGMbOx-48MboKOZjl_jB-n8", "Vídeo do casamento 1"],
+      ["1jtldmwrVsmTBkj7lHWK_mdd7wR22zxz3", "Vídeo do casamento 2"],
+      ["1WqX92dcv_D0A5mwGyK28bjeodm2_5BR1", "Vídeo do casamento 3"],
+      ["1jU5bSKvjE-4MjIsXnD1MHHQH68Q8qoL-", "Vídeo do casamento 4"],
+      ["1ZOmhCGrlTk3DLACG48aLMLPte0Pefz6K", "Vídeo do casamento 5"],
+      ["1l2TLUfcJfALFOYa5Pc7cM8XO5mru0n4x", "Vídeo do casamento 6"],
+      ["1Sod4QZW3JhrmQivLhLZq024qfeKA-wC_", "Vídeo do casamento 7"],
+      ["15EMDDhvNd_wRK0HhWpQEcyAY5-GpA_Vz", "Vídeo do casamento 8"],
+      ["1PYJFNG8-WQDPQwqJeCMBJ9ZJxqv0iMfQ", "Vídeo do casamento 9"],
+      ["1FbZveNzW3ucOiudl0IJtVFYQqgsHZbvj", "Vídeo do casamento 10"],
+      ["1kqp8ye2nEJeQ46UEieFOQmxIKxebzGIX", "Vídeo do casamento 11"],
+      ["1GWpo1gGjKxsA2MNEcHK4QDEToHo7CU0K", "Vídeo do casamento 12"],
+      ["1l1QqPph4FT0QoE4ArgEnWS22r0m_lhve", "Vídeo do casamento 13"],
+      ["17UBIlnkXRjEqVHMZjCsKamJp-4j5JbdU", "Vídeo do casamento 14"],
+      ["1qxQwxGdsCYVgGjePkOZ61sAxPiIJhiaF", "Vídeo do casamento 15"],
+      ["11imdQ1pmVi7PxCFfAZTUmTJFxFzo25p-", "Vídeo do casamento 16"]
+    ].forEach(function (video) {
+      albumMidias.push({
+        tipo: "video",
+        id: video[0],
+        src: "https://drive.google.com/thumbnail?id=" + video[0] + "&sz=w1200",
+        preview: "https://drive.google.com/file/d/" + video[0] + "/preview",
+        titulo: video[1]
       });
-
-      albumLightbox = lightbox;
-    }
-
-    function atualizarAlbumLightbox() {
-      if (!albumLightbox) {
-        return;
-      }
-
-      albumLightbox.querySelector(".gallery-lightbox__image").src =
-        albumFotos[albumIndice];
-
-      albumLightbox.querySelector(".gallery-lightbox__counter").textContent =
-        (albumIndice + 1) + " / " + albumFotos.length;
-    }
-
-    function abrirAlbumLightbox(caminho) {
-      if (!albumLightbox) {
-        return;
-      }
-
-      albumIndice = albumFotos.indexOf(caminho);
-
-      if (albumIndice < 0) {
-        albumIndice = 0;
-      }
-
-      atualizarAlbumLightbox();
-      albumAberto = true;
-      albumFocoAnterior = document.activeElement;
-      clearInterval(albumTimer);
-      albumTimer = null;
-      albumLightbox.classList.add("is-open");
-      albumLightbox.querySelector("button").focus();
-      document.body.style.overflow = "hidden";
-    }
-
-    function fecharAlbumLightbox() {
-      if (!albumLightbox) {
-        return;
-      }
-
-      albumAberto = false;
-      albumLightbox.classList.remove("is-open");
-      if (albumFocoAnterior) albumFocoAnterior.focus();
-      iniciarTrocaAlbum();
-      document.body.style.overflow = "";
-    }
-
-    function navegarAlbumLightbox(direcao) {
-      albumIndice =
-        (albumIndice + direcao + albumFotos.length) % albumFotos.length;
-
-      atualizarAlbumLightbox();
-    }
-
-    criarAlbumLightbox();
-
-    Array.prototype.forEach.call(
-      albumGaleria.querySelectorAll(".gallery__item"),
-      function (figure) {
-        var img = figure.querySelector("img");
-
-        figure.tabIndex = 0;
-        figure.setAttribute("role", "button");
-        figure.setAttribute("aria-label", "Abrir foto em tela cheia");
-
-        figure.addEventListener("click", function () {
-          abrirAlbumLightbox(img.getAttribute("src"));
-        });
-
-        figure.addEventListener("keydown", function (evento) {
-          if (evento.key === "Enter" || evento.key === " ") {
-            evento.preventDefault();
-            abrirAlbumLightbox(img.getAttribute("src"));
-          }
-        });
-      }
-    );
-
-    document.addEventListener("keydown", function (evento) {
-      if (!albumLightbox || !albumLightbox.classList.contains("is-open")) {
-        return;
-      }
-
-      if (evento.key === "Tab") {
-        var botoes = albumLightbox.querySelectorAll("button");
-        var primeiro = botoes[0];
-        var ultimo = botoes[botoes.length - 1];
-        if (evento.shiftKey && document.activeElement === primeiro) {
-          evento.preventDefault(); ultimo.focus();
-        } else if (!evento.shiftKey && document.activeElement === ultimo) {
-          evento.preventDefault(); primeiro.focus();
-        }
-      }
-      if (evento.key === "Escape") {
-        fecharAlbumLightbox();
-      } else if (evento.key === "ArrowLeft") {
-        navegarAlbumLightbox(-1);
-      } else if (evento.key === "ArrowRight") {
-        navegarAlbumLightbox(1);
-      }
     });
+
+    var visiveis = 9;
+    var intervalo = 8000;
+    var indiceTroca = 0;
+    var fila = albumMidias.slice(visiveis);
+    var timer = null;
+    var indiceAberto = 0;
+    var focoAnterior = null;
+    var movimentoReduzido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    albumGaleria.innerHTML = "";
+
+    function criarCartao(midia) {
+      var figure = document.createElement("figure");
+      var imagem = document.createElement("img");
+      figure.className = "gallery__item is-visible";
+      figure.tabIndex = 0;
+      figure.setAttribute("role", "button");
+      figure.setAttribute("aria-label", midia.tipo === "video" ? "Reproduzir " + midia.titulo : "Abrir " + midia.titulo);
+      figure.dataset.albumIndice = String(albumMidias.indexOf(midia));
+      imagem.src = midia.src;
+      imagem.alt = midia.titulo;
+      imagem.loading = "lazy";
+      imagem.decoding = "async";
+      figure.appendChild(imagem);
+      if (midia.tipo === "video") {
+        figure.classList.add("gallery__item--video");
+        var play = document.createElement("span");
+        play.className = "gallery__play";
+        play.setAttribute("aria-hidden", "true");
+        play.textContent = "▶";
+        figure.appendChild(play);
+      }
+      figure.addEventListener("click", function () { abrir(Number(figure.dataset.albumIndice)); });
+      figure.addEventListener("keydown", function (evento) {
+        if (evento.key === "Enter" || evento.key === " ") {
+          evento.preventDefault();
+          abrir(Number(figure.dataset.albumIndice));
+        }
+      });
+      return figure;
+    }
+
+    albumMidias.slice(0, visiveis).forEach(function (midia) {
+      albumGaleria.appendChild(criarCartao(midia));
+    });
+
+    var modal = document.createElement("div");
+    modal.id = "albumLightbox";
+    modal.className = "gallery-lightbox";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-label", "Álbum do casamento em tela cheia");
+    modal.innerHTML =
+      '<button class="gallery-lightbox__close" type="button" aria-label="Fechar">×</button>' +
+      '<button class="gallery-lightbox__prev" type="button" aria-label="Mídia anterior">‹</button>' +
+      '<div class="album-lightbox__media"></div>' +
+      '<button class="gallery-lightbox__next" type="button" aria-label="Próxima mídia">›</button>' +
+      '<div class="gallery-lightbox__counter" aria-live="polite"></div>';
+    document.body.appendChild(modal);
+
+    function atualizarModal() {
+      var midia = albumMidias[indiceAberto];
+      var area = modal.querySelector(".album-lightbox__media");
+      area.innerHTML = "";
+      if (midia.tipo === "video") {
+        var frame = document.createElement("iframe");
+        frame.src = midia.preview;
+        frame.title = midia.titulo;
+        frame.allow = "autoplay; fullscreen";
+        frame.allowFullscreen = true;
+        area.appendChild(frame);
+      } else {
+        var imagem = document.createElement("img");
+        imagem.className = "gallery-lightbox__image";
+        imagem.src = midia.src;
+        imagem.alt = midia.titulo;
+        area.appendChild(imagem);
+      }
+      modal.querySelector(".gallery-lightbox__counter").textContent =
+        (indiceAberto + 1) + " / " + albumMidias.length;
+    }
+
+    function abrir(indice) {
+      indiceAberto = indice;
+      focoAnterior = document.activeElement;
+      clearInterval(timer);
+      timer = null;
+      atualizarModal();
+      modal.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+      modal.querySelector(".gallery-lightbox__close").focus();
+    }
+
+    function fechar() {
+      modal.classList.remove("is-open");
+      modal.querySelector(".album-lightbox__media").innerHTML = "";
+      document.body.style.overflow = "";
+      if (focoAnterior) focoAnterior.focus();
+      iniciarTimer();
+    }
+
+    function navegar(direcao) {
+      indiceAberto = (indiceAberto + direcao + albumMidias.length) % albumMidias.length;
+      atualizarModal();
+    }
+
+    function trocarUmaMidia() {
+      if (document.hidden || modal.classList.contains("is-open") || !fila.length) return;
+      var item = albumGaleria.querySelectorAll(".gallery__item")[indiceTroca];
+      var proxima = fila.shift();
+      var atual = albumMidias[Number(item.dataset.albumIndice)];
+      fila.push(atual);
+      var novo = criarCartao(proxima);
+      novo.classList.add("is-changing");
+      item.classList.add("is-changing");
+      setTimeout(function () {
+        item.replaceWith(novo);
+        requestAnimationFrame(function () { novo.classList.remove("is-changing"); });
+      }, 650);
+      indiceTroca = (indiceTroca + 1) % visiveis;
+    }
+
+    function iniciarTimer() {
+      if (!timer && !movimentoReduzido) timer = setInterval(trocarUmaMidia, intervalo);
+    }
+
+    modal.querySelector(".gallery-lightbox__close").addEventListener("click", fechar);
+    modal.querySelector(".gallery-lightbox__prev").addEventListener("click", function () { navegar(-1); });
+    modal.querySelector(".gallery-lightbox__next").addEventListener("click", function () { navegar(1); });
+    modal.addEventListener("click", function (evento) { if (evento.target === modal) fechar(); });
+    document.addEventListener("keydown", function (evento) {
+      if (!modal.classList.contains("is-open")) return;
+      if (evento.key === "Escape") fechar();
+      else if (evento.key === "ArrowLeft") navegar(-1);
+      else if (evento.key === "ArrowRight") navegar(1);
+    });
+
+    var estilo = document.createElement("style");
+    estilo.textContent =
+      ".gallery__item--video::before{content:'Vídeo';position:absolute;top:12px;left:12px;z-index:2;padding:6px 10px;border-radius:999px;background:rgba(16,32,59,.82);color:#fff;font:500 11px Jost,sans-serif;letter-spacing:.08em;text-transform:uppercase}" +
+      ".gallery__play{position:absolute;inset:50% auto auto 50%;z-index:2;display:grid;place-items:center;width:58px;height:58px;padding-left:4px;border:2px solid rgba(255,255,255,.9);border-radius:50%;color:#fff;background:rgba(16,32,59,.72);font-size:22px;transform:translate(-50%,-50%);box-shadow:0 8px 28px rgba(0,0,0,.35)}" +
+      ".album-lightbox__media{display:flex;align-items:center;justify-content:center;width:min(92vw,1200px);height:84vh}" +
+      ".album-lightbox__media iframe{width:100%;height:100%;border:0;border-radius:10px;background:#000;box-shadow:0 22px 70px rgba(0,0,0,.45)}";
+    document.head.appendChild(estilo);
+    iniciarTimer();
   })();
 
   /* ============================================================
