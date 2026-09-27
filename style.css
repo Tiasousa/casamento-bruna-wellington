@@ -482,19 +482,61 @@ button{font-family:inherit;cursor:pointer}
     transparent;
 }
 
-/* Informações, Confirmação e Presente — sempre empilhadas,
-   uma seção só, sem colunas e sem espaço vazio sobrando. */
+/* Informações + Confirmação + Presente — UM bloco único (um só
+   fundo, uma só borda), dividido por dentro em esquerda/direita. */
 .section-pair{
-  display:block;
-  max-width:1180px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:stretch;
+  max-width:1100px;
   margin:0 auto;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-soft);
+  overflow:hidden;
+  position:relative;
+}
+.section-pair::before{
+  content:"";
+  position:absolute;
+  top:6%;
+  bottom:6%;
+  left:50%;
+  width:1px;
+  background:linear-gradient(180deg,transparent,var(--line) 20%,var(--line) 80%,transparent);
+  transform:translateX(-.5px);
 }
 .section-pair__col{
-  display:block;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:2.4rem;
+  padding:3rem 2.2rem;
+}
+@media (min-width:901px){
+  /* Informações do evento fica no lado DIREITO do bloco */
+  .section-pair__col:first-child{order:2}
+  .section-pair__col:last-child{order:1}
 }
 .section-pair .section{
   max-width:100%;
-  padding:3rem 1.4rem;
+  padding:0;
+  background:none !important;
+}
+@media (max-width:900px){
+  .section-pair{
+    grid-template-columns:1fr;
+  }
+  .section-pair::before{
+    display:none;
+  }
+  .section-pair__col{
+    padding:2.6rem 1.4rem;
+  }
+  .section-pair__col:first-child{
+    border-bottom:1px solid var(--line);
+  }
 }
 
 /* NOSSA HISTÓRIA — LINHA DO TEMPO */
