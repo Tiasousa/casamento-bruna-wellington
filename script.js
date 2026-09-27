@@ -691,7 +691,7 @@
 
       clearInterval(timer);
       timer = null;
-      indiceTroca = 0;
+      var fotosIntercaladas = albumMidias.filter(function (midia) { return midia.tipo === "foto"; }); var videosIntercalados = albumMidias.filter(function (midia) { return midia.tipo === "video"; }); albumMidias = []; while (fotosIntercaladas.length || videosIntercalados.length) { if (fotosIntercaladas.length) albumMidias.push(fotosIntercaladas.shift()); if (fotosIntercaladas.length) albumMidias.push(fotosIntercaladas.shift()); if (videosIntercalados.length) albumMidias.push(videosIntercalados.shift()); } indiceTroca = 0;
       fila = albumMidias.slice(visiveis);
       albumGaleria.innerHTML = "";
       albumMidias.slice(0, visiveis).forEach(function (midia) {
