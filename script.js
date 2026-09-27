@@ -491,7 +491,7 @@
   iniciarGaleria();
 
   /* ============================================================
-     Álbum do Casamento — galeria estática (8 fotos reais do dia),
+     Álbum do Casamento — 9 fotos visíveis com troca automática,
      com lightbox próprio. Independente da galeria "Nossa História"
      acima, não mexe em nada do que já funciona lá.
      ============================================================ */
@@ -508,6 +508,66 @@
         return img.getAttribute("src");
       }
     );
+
+    // Mantém a lista completa para a ampliação, mas exibe só nove cartões.
+    var albumLimite = 9;
+    var albumSlot = 0;
+    var albumTimer = null;
+    var albumFadeTimer = null;
+    var albumTrocaPendente = false;
+    var albumAberto = false;
+    var albumFocoAnterior = null;
+    var albumMovimento = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var albumItens = Array.prototype.slice.call(
+      albumGaleria.querySelectorAll(".gallery__item")
+    );
+    albumItens.slice(albumLimite).forEach(function (item) { item.remove(); });
+    albumItens = albumItens.slice(0, albumLimite);
+    var albumFila = [];
+
+    function trocarFotoAlbum() {
+      if (document.hidden || albumAberto || albumMovimento.matches || albumTrocaPendente ||
+          albumFotos.length <= albumItens.length || !albumItens.length) return;
+      var exibidas = albumItens.map(function (item) {
+        return item.querySelector("img").getAttribute("src");
+      });
+      if (!albumFila.length) {
+        albumFila = embaralhar(albumFotos.filter(function (foto) {
+          return exibidas.indexOf(foto) === -1;
+        }));
+      }
+      var caminho = albumFila.shift();
+      if (!caminho) return;
+      var item = albumItens[albumSlot];
+      albumTrocaPendente = true;
+      carregarImagem(caminho).then(function () {
+        if (albumAberto || document.hidden || albumMovimento.matches) {
+          albumFila.unshift(caminho);
+          albumTrocaPendente = false;
+          return;
+        }
+        item.classList.add("is-changing");
+        albumFadeTimer = setTimeout(function () {
+          if (!albumAberto && !document.hidden && !albumMovimento.matches) {
+            item.querySelector("img").src = caminho;
+            albumSlot = (albumSlot + 1) % albumItens.length;
+          } else {
+            albumFila.unshift(caminho);
+          }
+          item.classList.remove("is-changing");
+          albumTrocaPendente = false;
+        }, DURACAO_FADE);
+      }).catch(function () {
+        albumTrocaPendente = false;
+      });
+    }
+
+    function iniciarTrocaAlbum() {
+      if (!albumTimer && !albumMovimento.matches && albumFotos.length > albumItens.length) {
+        albumTimer = setInterval(trocarFotoAlbum, INTERVALO_TROCA);
+      }
+    }
+    iniciarTrocaAlbum();
 
     var albumIndice = 0;
     var albumLightbox = null;
@@ -582,7 +642,12 @@
       }
 
       atualizarAlbumLightbox();
+      albumAberto = true;
+      albumFocoAnterior = document.activeElement;
+      clearInterval(albumTimer);
+      albumTimer = null;
       albumLightbox.classList.add("is-open");
+      albumLightbox.querySelector("button").focus();
       document.body.style.overflow = "hidden";
     }
 
@@ -591,7 +656,10 @@
         return;
       }
 
+      albumAberto = false;
       albumLightbox.classList.remove("is-open");
+      if (albumFocoAnterior) albumFocoAnterior.focus();
+      iniciarTrocaAlbum();
       document.body.style.overflow = "";
     }
 
@@ -631,6 +699,16 @@
         return;
       }
 
+      if (evento.key === "Tab") {
+        var botoes = albumLightbox.querySelectorAll("button");
+        var primeiro = botoes[0];
+        var ultimo = botoes[botoes.length - 1];
+        if (evento.shiftKey && document.activeElement === primeiro) {
+          evento.preventDefault(); ultimo.focus();
+        } else if (!evento.shiftKey && document.activeElement === ultimo) {
+          evento.preventDefault(); primeiro.focus();
+        }
+      }
       if (evento.key === "Escape") {
         fecharAlbumLightbox();
       } else if (evento.key === "ArrowLeft") {
