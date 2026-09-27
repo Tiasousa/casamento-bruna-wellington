@@ -471,6 +471,24 @@ button{font-family:inherit;cursor:pointer}
   scroll-margin-top:84px;
   scroll-snap-align:start;
 }
+
+/* Telas muito grandes (monitor grande / TV): os blocos de
+   conteúdo têm largura fixa em px, então em telas enormes eles
+   ficam pequenos demais no meio de muito espaço vazio. Aqui a
+   gente aumenta essas larguras proporcionalmente — nada de texto
+   muda, só o quanto de espaço cada bloco ocupa. */
+@media (min-width:1700px){
+  .section{max-width:1200px}
+  .section-pair{max-width:1520px}
+  .timeline{max-width:860px}
+  .hero__content{width:min(88%,820px)}
+}
+@media (min-width:2200px){
+  .section{max-width:1400px}
+  .section-pair{max-width:1760px}
+  .timeline{max-width:960px}
+  .hero__content{width:min(88%,920px)}
+}
 .hero{
   scroll-margin-top:84px;
   scroll-snap-align:start;
@@ -511,8 +529,8 @@ button{font-family:inherit;cursor:pointer}
   display:flex;
   flex-direction:column;
   justify-content:center;
-  gap:2.4rem;
-  padding:3rem 2.2rem;
+  gap:3.2rem;
+  padding:4rem 2.8rem;
 }
 @media (min-width:901px){
   /* Informações do evento fica no lado DIREITO do bloco */
@@ -523,6 +541,14 @@ button{font-family:inherit;cursor:pointer}
   max-width:100%;
   padding:0;
   background:none !important;
+}
+.section-pair .info-grid{
+  grid-template-columns:1fr;
+  gap:1rem;
+  margin-top:2rem;
+}
+.section-pair .info-card{
+  padding:2rem 1.6rem;
 }
 @media (max-width:900px){
   .section-pair{
@@ -1515,7 +1541,6 @@ button:focus-visible{
 
 /* Cartões com borda dourada grossa e sombra bem marcada — visível parado */
 .info-card,
-.timeline__item,
 .countdown__unit{
   transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);
   border:2px solid var(--gold);
