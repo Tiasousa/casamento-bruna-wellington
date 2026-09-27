@@ -491,6 +491,157 @@
   iniciarGaleria();
 
   /* ============================================================
+     Álbum do Casamento — galeria estática (8 fotos reais do dia),
+     com lightbox próprio. Independente da galeria "Nossa História"
+     acima, não mexe em nada do que já funciona lá.
+     ============================================================ */
+  (function () {
+    var albumGaleria = document.getElementById("albumCasamento");
+
+    if (!albumGaleria) {
+      return;
+    }
+
+    var albumFotos = Array.prototype.map.call(
+      albumGaleria.querySelectorAll("img"),
+      function (img) {
+        return img.getAttribute("src");
+      }
+    );
+
+    var albumIndice = 0;
+    var albumLightbox = null;
+
+    function criarAlbumLightbox() {
+      if (document.getElementById("albumLightbox")) {
+        return;
+      }
+
+      var lightbox = document.createElement("div");
+      lightbox.id = "albumLightbox";
+      lightbox.className = "gallery-lightbox";
+      lightbox.setAttribute("role", "dialog");
+      lightbox.setAttribute("aria-modal", "true");
+      lightbox.setAttribute("aria-label", "Álbum do casamento em tela cheia");
+
+      lightbox.innerHTML =
+        '<button class="gallery-lightbox__close" type="button" aria-label="Fechar">×</button>' +
+        '<button class="gallery-lightbox__prev" type="button" aria-label="Foto anterior">‹</button>' +
+        '<img class="gallery-lightbox__image" alt="Bruna e Wellington — casamento">' +
+        '<button class="gallery-lightbox__next" type="button" aria-label="Próxima foto">›</button>' +
+        '<div class="gallery-lightbox__counter" aria-live="polite"></div>';
+
+      document.body.appendChild(lightbox);
+
+      lightbox
+        .querySelector(".gallery-lightbox__close")
+        .addEventListener("click", fecharAlbumLightbox);
+
+      lightbox
+        .querySelector(".gallery-lightbox__prev")
+        .addEventListener("click", function () {
+          navegarAlbumLightbox(-1);
+        });
+
+      lightbox
+        .querySelector(".gallery-lightbox__next")
+        .addEventListener("click", function () {
+          navegarAlbumLightbox(1);
+        });
+
+      lightbox.addEventListener("click", function (evento) {
+        if (evento.target === lightbox) {
+          fecharAlbumLightbox();
+        }
+      });
+
+      albumLightbox = lightbox;
+    }
+
+    function atualizarAlbumLightbox() {
+      if (!albumLightbox) {
+        return;
+      }
+
+      albumLightbox.querySelector(".gallery-lightbox__image").src =
+        albumFotos[albumIndice];
+
+      albumLightbox.querySelector(".gallery-lightbox__counter").textContent =
+        (albumIndice + 1) + " / " + albumFotos.length;
+    }
+
+    function abrirAlbumLightbox(caminho) {
+      if (!albumLightbox) {
+        return;
+      }
+
+      albumIndice = albumFotos.indexOf(caminho);
+
+      if (albumIndice < 0) {
+        albumIndice = 0;
+      }
+
+      atualizarAlbumLightbox();
+      albumLightbox.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function fecharAlbumLightbox() {
+      if (!albumLightbox) {
+        return;
+      }
+
+      albumLightbox.classList.remove("is-open");
+      document.body.style.overflow = "";
+    }
+
+    function navegarAlbumLightbox(direcao) {
+      albumIndice =
+        (albumIndice + direcao + albumFotos.length) % albumFotos.length;
+
+      atualizarAlbumLightbox();
+    }
+
+    criarAlbumLightbox();
+
+    Array.prototype.forEach.call(
+      albumGaleria.querySelectorAll(".gallery__item"),
+      function (figure) {
+        var img = figure.querySelector("img");
+
+        figure.tabIndex = 0;
+        figure.setAttribute("role", "button");
+        figure.setAttribute("aria-label", "Abrir foto em tela cheia");
+
+        figure.addEventListener("click", function () {
+          abrirAlbumLightbox(img.getAttribute("src"));
+        });
+
+        figure.addEventListener("keydown", function (evento) {
+          if (evento.key === "Enter" || evento.key === " ") {
+            evento.preventDefault();
+            abrirAlbumLightbox(img.getAttribute("src"));
+          }
+        });
+      }
+    );
+
+    document.addEventListener("keydown", function (evento) {
+      if (!albumLightbox || !albumLightbox.classList.contains("is-open")) {
+        return;
+      }
+
+      if (evento.key === "Escape") {
+        fecharAlbumLightbox();
+      } else if (evento.key === "ArrowLeft") {
+        navegarAlbumLightbox(-1);
+      } else if (evento.key === "ArrowRight") {
+        navegarAlbumLightbox(1);
+      }
+    });
+  })();
+
+  /* ============================================================
      Animações de entrada
      ============================================================ */
 
