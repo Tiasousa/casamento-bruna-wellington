@@ -622,13 +622,13 @@
       clearInterval(timer);
       timer = null;
       atualizarModal();
-      modal.classList.add("is-open");
+      modal.classList.add("is-open"); if (window.matchMedia("(max-width: 700px)").matches) { if (modal.requestFullscreen) modal.requestFullscreen().catch(function () {}); else if (modal.webkitRequestFullscreen) modal.webkitRequestFullscreen(); }
       document.body.style.overflow = "hidden";
       modal.querySelector(".gallery-lightbox__close").focus();
     }
 
     function fechar() {
-      modal.classList.remove("is-open");
+      modal.classList.remove("is-open"); if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen(); else if (document.webkitFullscreenElement && document.webkitExitFullscreen) document.webkitExitFullscreen();
       modal.querySelector(".album-lightbox__media").innerHTML = "";
       document.body.style.overflow = "";
       if (focoAnterior) focoAnterior.focus();
