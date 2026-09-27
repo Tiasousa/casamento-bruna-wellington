@@ -1342,23 +1342,32 @@ button:focus-visible{
 }
 
 /* ============================================================
-   MARCA-D'ÁGUA DO CASAL NAS LATERAIS
+   V10 — HERO CINEMATOGRÁFICO
+   Foto real do casal em tela cheia, com véu escuro pra manter o
+   texto legível, e leve parallax no desktop.
    ============================================================ */
-.hero::before{
-  content:none;
+.hero::before{content:none}
+.hero::after{content:none}
+
+.hero__watercolor{
+  background-image:
+    linear-gradient(180deg,rgba(10,20,38,.72) 0%,rgba(16,32,59,.52) 38%,rgba(10,20,38,.8) 100%),
+    url("assets/fotos/marca-casal.png");
+  background-size:cover;
+  background-position:center 28%;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
 }
 
-.hero::after{
-  content:none;
+/* Painel claro sobre a foto — mesma cor/estilo de letra de sempre, só a foto muda */
+.hero__content{
+  background:rgba(250,248,244,.86);
 }
 
 @media (max-width:760px){
-  .hero::before{
-    content:none;
-  }
-
-  .hero::after{
-    content:none;
+  .hero__watercolor{
+    background-attachment:scroll;
+    background-position:center 24%;
   }
 
   .leaf-corner--hero-right{
@@ -1367,32 +1376,8 @@ button:focus-visible{
     right:-32px;
     width:150px;
     height:196px;
-    opacity:.55;
+    opacity:.4;
     z-index:2;
-  }
-
-  /* Véu central decorativo (sem foto), mantém o layout com leve tonalidade */
-  .hero__watercolor{
-    background:
-      radial-gradient(ellipse 30% 58% at -8% 7%,rgba(18,43,80,.35),transparent 66%),
-      radial-gradient(ellipse 10% 16% at 1% 12%,rgba(92,130,186,.17),transparent 72%),
-      radial-gradient(ellipse 14% 21% at 4% 29%,rgba(53,88,140,.18),transparent 70%),
-      radial-gradient(ellipse 18% 31% at -1% 48%,rgba(38,72,120,.20),transparent 69%),
-      radial-gradient(ellipse 12% 19% at 5% 66%,rgba(78,112,165,.13),transparent 72%),
-      radial-gradient(ellipse 21% 39% at -3% 80%,rgba(27,57,100,.25),transparent 68%),
-      radial-gradient(ellipse 27% 51% at -5% 101%,rgba(17,42,78,.31),transparent 69%),
-
-      radial-gradient(ellipse 29% 55% at 108% 10%,rgba(20,46,84,.34),transparent 66%),
-      radial-gradient(ellipse 10% 16% at 99% 21%,rgba(91,129,186,.16),transparent 72%),
-      radial-gradient(ellipse 14% 22% at 96% 38%,rgba(51,87,140,.17),transparent 70%),
-      radial-gradient(ellipse 17% 29% at 101% 57%,rgba(37,72,120,.19),transparent 69%),
-      radial-gradient(ellipse 11% 18% at 96% 73%,rgba(78,113,166,.12),transparent 72%),
-      radial-gradient(ellipse 20% 37% at 103% 85%,rgba(29,61,104,.23),transparent 68%),
-      radial-gradient(ellipse 26% 49% at 104% 102%,rgba(18,44,80,.30),transparent 69%),
-
-      radial-gradient(ellipse 95% 70% at 62% 45%,rgba(70,90,130,.16),transparent 85%),
-      radial-gradient(ellipse 60% 60% at 88% 40%,rgba(70,90,130,.14),transparent 80%),
-      radial-gradient(ellipse 80% 55% at 60% 68%,rgba(70,90,130,.15),transparent 82%);
   }
 }
 
@@ -1491,14 +1476,11 @@ button:focus-visible{
   .section__title::after{animation:none}
 }
 
-/* Cartões de contador com acabamento em vidro + brilho dourado no número */
+/* Cartões de contador com acabamento em vidro */
 .countdown__unit{
   background:rgba(255,255,255,.65);
   backdrop-filter:blur(6px);
   -webkit-backdrop-filter:blur(6px);
-}
-.countdown__value{
-  text-shadow:0 0 14px rgba(198,161,91,.55);
 }
 
 @media (prefers-reduced-motion:reduce){
