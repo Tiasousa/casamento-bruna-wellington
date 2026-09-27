@@ -494,6 +494,7 @@ button{font-family:inherit;cursor:pointer}
 }
 .section-pair .section{
   max-width:100%;
+  padding:3rem 1.4rem;
 }
 
 /* NOSSA HISTÓRIA — LINHA DO TEMPO */
