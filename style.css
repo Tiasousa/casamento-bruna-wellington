@@ -486,14 +486,24 @@ button{font-family:inherit;cursor:pointer}
 .section-pair{
   display:grid;
   grid-template-columns:1fr 1fr;
-  align-items:start;
+  align-items:stretch;
   gap:1rem;
   max-width:1180px;
   margin:0 auto;
 }
+.section-pair__col{
+  display:flex;
+  flex-direction:column;
+}
 .section-pair .section{
   max-width:100%;
   margin:0;
+}
+.section-pair__col .section--presente{
+  flex:1 1 auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 .section-pair .info-grid{
   grid-template-columns:1fr;
