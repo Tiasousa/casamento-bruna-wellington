@@ -461,6 +461,32 @@ button{font-family:inherit;cursor:pointer}
     transparent;
 }
 
+/* Informações + Presente lado a lado (desktop) */
+.section-pair{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:start;
+  gap:1rem;
+  max-width:1180px;
+  margin:0 auto;
+}
+.section-pair .section{
+  max-width:100%;
+  margin:0;
+}
+.section-pair .info-grid{
+  grid-template-columns:1fr;
+  gap:1rem;
+}
+@media (max-width:900px){
+  .section-pair{
+    grid-template-columns:1fr;
+  }
+  .section-pair .info-grid{
+    grid-template-columns:1fr;
+  }
+}
+
 /* NOSSA HISTÓRIA — LINHA DO TEMPO */
 .section--historia{
   background:
