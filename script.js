@@ -679,6 +679,46 @@
       ".album-lightbox__media iframe{width:100%;height:100%;border:0;border-radius:10px;background:#000;box-shadow:0 22px 70px rgba(0,0,0,.45)}";
     document.head.appendChild(estilo);
     iniciarTimer();
+
+        function aplicarAlbumDoDrive(resposta) {
+      if (!resposta || !Array.isArray(resposta.itens) || !resposta.itens.length) return;
+      var vistos = {};
+      albumMidias = resposta.itens.filter(function (midia) {
+        if (!midia || !midia.id || vistos[midia.id]) return false;
+        vistos[midia.id] = true;
+        return midia.tipo === "foto" || midia.tipo === "video";
+      });
+      if (!albumMidias.length) return;
+      clearInterval(timer);
+      timer = null;
+      indiceTroca = 0;
+      fila = albumMidias.slice(visiveis);
+      albumGaleria.innerHTML = "";
+      albumMidias.slice(0, visiveis).forEach(function (midia) {
+        albumGaleria.appendChild(criarCartao(midia));
+      });
+      iniciarTimer();
+    }
+
+    if (window.ALBUM_API_URL) {
+      var callbackAlbum = "receberAlbumCasamento_" + Date.now();
+      var carregadorAlbum = document.createElement("script");
+      window[callbackAlbum] = function (resposta) {
+        aplicarAlbumDoDrive(resposta);
+        delete window[callbackAlbum];
+        carregadorAlbum.remove();
+      };
+      carregadorAlbum.onerror = function () {
+        delete window[callbackAlbum];
+        carregadorAlbum.remove();
+        console.warn("Não foi possível atualizar o álbum pelo Google Drive.");
+      };
+      carregadorAlbum.src = window.ALBUM_API_URL +
+        (window.ALBUM_API_URL.indexOf("?") === -1 ? "?" : "&") +
+        "callback=" + encodeURIComponent(callbackAlbum) + "&_=" + Date.now();
+      document.head.appendChild(carregadorAlbum);
+    }
+
   })();
 
   /* ============================================================
