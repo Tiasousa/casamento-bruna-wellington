@@ -1362,7 +1362,7 @@ button:focus-visible{
 /* Painel claro sobre a foto — mais translúcido, deixa a foto aparecer atrás.
    Cor e estilo de letra continuam exatamente os mesmos. */
 .hero__content{
-  background:rgba(250,248,244,.74);
+  background:rgba(250,248,244,.58);
 }
 
 @media (max-width:760px){
