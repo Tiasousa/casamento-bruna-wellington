@@ -1402,7 +1402,7 @@ button:focus-visible{
    Não altera layout nem estrutura — só acabamento.
    ============================================================ */
 
-/* Partículas douradas flutuando no hero */
+/* Partículas douradas no hero — bem visíveis */
 .hero::before{
   content:"";
   position:absolute;
@@ -1410,84 +1410,95 @@ button:focus-visible{
   z-index:1;
   pointer-events:none;
   background-image:
-    radial-gradient(circle,rgba(198,161,91,.55) 1px,transparent 1.6px),
-    radial-gradient(circle,rgba(198,161,91,.4) 1px,transparent 1.6px),
-    radial-gradient(circle,rgba(198,161,91,.5) 1px,transparent 1.6px);
-  background-size:180px 220px,260px 300px,140px 190px;
-  background-position:10% 20%,70% 60%,40% 85%;
-  animation:sparkleFloat 14s ease-in-out infinite;
-  opacity:.7;
+    radial-gradient(circle,rgba(198,161,91,.95) 2.4px,transparent 3.2px),
+    radial-gradient(circle,rgba(198,161,91,.85) 2.6px,transparent 3.4px),
+    radial-gradient(circle,rgba(198,161,91,.9) 2.2px,transparent 3px),
+    radial-gradient(circle,rgba(198,161,91,.8) 2px,transparent 2.8px);
+  background-size:140px 170px,210px 240px,110px 150px,260px 200px;
+  background-position:10% 20%,70% 60%,40% 85%,85% 15%;
+  animation:sparkleFloat 6s ease-in-out infinite;
+  opacity:1;
 }
 @keyframes sparkleFloat{
-  0%,100%{background-position:10% 20%,70% 60%,40% 85%;opacity:.55}
-  50%{background-position:14% 26%,66% 54%,44% 79%;opacity:.85}
+  0%,100%{background-position:10% 20%,70% 60%,40% 85%,85% 15%;opacity:.75}
+  50%{background-position:16% 30%,64% 50%,46% 77%,79% 22%;opacity:1}
 }
 @media (prefers-reduced-motion:reduce){
   .hero::before{animation:none}
 }
 
-/* Brilho deslizante nos botões — roda sozinho (mobile) e também no hover (desktop) */
-.btn{position:relative;overflow:hidden}
+/* Brilho deslizante nos botões — bem nítido, roda sozinho e também no hover */
+.btn{position:relative;overflow:hidden;border:2px solid rgba(198,161,91,.55)}
 .btn::before{
   content:"";
   position:absolute;
   top:0;
-  left:-60%;
-  width:40%;
+  left:-70%;
+  width:35%;
   height:100%;
-  background:linear-gradient(115deg,transparent,rgba(255,255,255,.4),transparent);
+  background:linear-gradient(115deg,transparent,rgba(255,255,255,.85),transparent);
   transform:skewX(-20deg);
   pointer-events:none;
-  animation:btnShine 4.5s ease-in-out infinite;
+  animation:btnShine 3s ease-in-out infinite;
 }
 @keyframes btnShine{
-  0%,20%{left:-60%}
-  55%,100%{left:120%}
+  0%,15%{left:-70%}
+  55%,100%{left:130%}
 }
 @media (prefers-reduced-motion:reduce){
   .btn::before{animation:none;display:none}
 }
 
-/* Elevação suave nos cartões — estado permanente + reforço no hover */
+/* Cartões com borda dourada grossa e sombra bem marcada — visível parado */
 .info-card,
 .timeline__item,
 .countdown__unit{
   transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);
-  border-color:rgba(198,161,91,.42);
-  box-shadow:0 20px 38px -24px rgba(16,32,59,.32),0 0 0 1px rgba(198,161,91,.06);
+  border:2px solid var(--gold);
+  box-shadow:0 22px 40px -20px rgba(16,32,59,.45),0 0 0 4px rgba(198,161,91,.14);
 }
 .info-card:hover{
-  transform:translateY(-6px);
-  border-color:rgba(198,161,91,.6);
-  box-shadow:0 26px 46px -26px rgba(16,32,59,.38);
+  transform:translateY(-8px);
+  box-shadow:0 30px 52px -22px rgba(16,32,59,.5),0 0 0 5px rgba(198,161,91,.22);
 }
 .countdown__unit:hover{
-  transform:translateY(-3px);
-  border-color:rgba(198,161,91,.65);
-  box-shadow:0 16px 30px -20px rgba(198,161,91,.35);
+  transform:translateY(-4px);
+  box-shadow:0 20px 34px -16px rgba(198,161,91,.5),0 0 0 5px rgba(198,161,91,.22);
 }
 
 .gallery__item{
   transition:opacity .7s var(--ease),transform .45s var(--ease),box-shadow .45s var(--ease);
-  box-shadow:var(--shadow-soft),0 0 0 1px rgba(198,161,91,.10);
+  box-shadow:0 0 0 3px var(--gold),0 22px 40px -20px rgba(16,32,59,.4);
 }
 .gallery__item:hover{
-  transform:translateY(-6px) scale(1.015);
-  box-shadow:0 30px 50px -26px rgba(16,32,59,.45);
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 0 0 3px var(--gold),0 32px 55px -22px rgba(16,32,59,.5);
 }
 
-
-/* Traço do título de seção com brilho suave */
+/* Traço do título de seção — grosso, dourado, com brilho pulsante */
 .section__title::after{
+  width:110px;
+  height:3px;
   background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  box-shadow:0 0 10px rgba(198,161,91,.55);
+  box-shadow:0 0 16px rgba(198,161,91,.85);
+  animation:titleGlow 2.4s ease-in-out infinite;
+}
+@keyframes titleGlow{
+  0%,100%{box-shadow:0 0 10px rgba(198,161,91,.6)}
+  50%{box-shadow:0 0 22px rgba(198,161,91,1)}
+}
+@media (prefers-reduced-motion:reduce){
+  .section__title::after{animation:none}
 }
 
-/* Cartões de contador com leve acabamento em vidro */
+/* Cartões de contador com acabamento em vidro + brilho dourado no número */
 .countdown__unit{
-  background:rgba(255,255,255,.55);
+  background:rgba(255,255,255,.65);
   backdrop-filter:blur(6px);
   -webkit-backdrop-filter:blur(6px);
+}
+.countdown__value{
+  text-shadow:0 0 14px rgba(198,161,91,.55);
 }
 
 @media (prefers-reduced-motion:reduce){
