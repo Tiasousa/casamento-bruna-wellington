@@ -1426,7 +1426,7 @@ button:focus-visible{
   .hero::before{animation:none}
 }
 
-/* Brilho deslizante nos botões ao passar o mouse */
+/* Brilho deslizante nos botões — roda sozinho (mobile) e também no hover (desktop) */
 .btn{position:relative;overflow:hidden}
 .btn::before{
   content:"";
@@ -1435,32 +1435,41 @@ button:focus-visible{
   left:-60%;
   width:40%;
   height:100%;
-  background:linear-gradient(115deg,transparent,rgba(255,255,255,.35),transparent);
+  background:linear-gradient(115deg,transparent,rgba(255,255,255,.4),transparent);
   transform:skewX(-20deg);
-  transition:left .65s var(--ease);
   pointer-events:none;
+  animation:btnShine 4.5s ease-in-out infinite;
 }
-.btn:hover::before{left:120%}
+@keyframes btnShine{
+  0%,20%{left:-60%}
+  55%,100%{left:120%}
+}
+@media (prefers-reduced-motion:reduce){
+  .btn::before{animation:none;display:none}
+}
 
-/* Elevação suave nos cartões ao interagir */
+/* Elevação suave nos cartões — estado permanente + reforço no hover */
 .info-card,
 .timeline__item,
 .countdown__unit{
   transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);
+  border-color:rgba(198,161,91,.42);
+  box-shadow:0 20px 38px -24px rgba(16,32,59,.32),0 0 0 1px rgba(198,161,91,.06);
 }
 .info-card:hover{
   transform:translateY(-6px);
-  border-color:rgba(198,161,91,.55);
+  border-color:rgba(198,161,91,.6);
   box-shadow:0 26px 46px -26px rgba(16,32,59,.38);
 }
 .countdown__unit:hover{
   transform:translateY(-3px);
-  border-color:rgba(198,161,91,.6);
+  border-color:rgba(198,161,91,.65);
   box-shadow:0 16px 30px -20px rgba(198,161,91,.35);
 }
 
 .gallery__item{
   transition:opacity .7s var(--ease),transform .45s var(--ease),box-shadow .45s var(--ease);
+  box-shadow:var(--shadow-soft),0 0 0 1px rgba(198,161,91,.10);
 }
 .gallery__item:hover{
   transform:translateY(-6px) scale(1.015);
