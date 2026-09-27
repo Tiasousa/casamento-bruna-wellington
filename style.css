@@ -276,7 +276,7 @@ button{font-family:inherit;cursor:pointer}
 .hero__content{
   position:relative;
   z-index:3;
-  width:min(88%,680px);
+  width:min(88%,820px);
   color:var(--navy-deep);
   padding:2.4rem 2.2rem;
   border-radius:32px;
@@ -462,32 +462,16 @@ button{font-family:inherit;cursor:pointer}
   100%{opacity:0}
 }
 
-/* SEÇÕES */
+/* SEÇÕES — regra fluida e simples: usa uma % da tela disponível
+   até um teto máximo. Funciona igual em celular, desktop ou TV,
+   sem faixas separadas por tamanho de tela. */
 .section{
-  max-width:980px;
+  max-width:min(92%,1200px);
   margin:0 auto;
   padding:5.5rem 1.4rem;
   text-align:center;
   scroll-margin-top:84px;
   scroll-snap-align:start;
-}
-
-/* Telas muito grandes (monitor grande / TV): os blocos de
-   conteúdo têm largura fixa em px, então em telas enormes eles
-   ficam pequenos demais no meio de muito espaço vazio. Aqui a
-   gente aumenta essas larguras proporcionalmente — nada de texto
-   muda, só o quanto de espaço cada bloco ocupa. */
-@media (min-width:1700px){
-  .section{max-width:1200px}
-  .section-pair{max-width:1520px}
-  .timeline{max-width:860px}
-  .hero__content{width:min(88%,820px)}
-}
-@media (min-width:2200px){
-  .section{max-width:1400px}
-  .section-pair{max-width:1760px}
-  .timeline{max-width:960px}
-  .hero__content{width:min(88%,920px)}
 }
 .hero{
   scroll-margin-top:84px;
@@ -506,7 +490,7 @@ button{font-family:inherit;cursor:pointer}
   display:grid;
   grid-template-columns:1fr 1fr;
   align-items:stretch;
-  max-width:1100px;
+  width:min(94%,1800px);
   margin:0 auto;
   background:var(--paper);
   border:1px solid var(--line);
@@ -573,7 +557,7 @@ button{font-family:inherit;cursor:pointer}
 }
 .timeline{
   position:relative;
-  max-width:640px;
+  max-width:min(90%,860px);
   margin:2.8rem auto 0;
   padding-left:2.4rem;
   text-align:left;
